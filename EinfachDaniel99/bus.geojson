@@ -1,1 +1,3 @@
-{ "type": "FeatureCollection", "features": [ {"type":"Feature","geometry":{"type":"LineString","coordinates":[[8.7419,53.04858]]},"properties":{"statusId":200133, "Stauts_URL" : "https://traewelling.de/status/200133","Kategorie" : "bus","Start" : "Frankfurt(Main)Hbf","Ziel" : "Kassel-Wilhelmshöhe","Linie" : "Bus 8757","Entfernung" : "194000","Reisedauer" : "81","CheckInPoints" : "8","Speed" : "143.7037037037037"}} ] }
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[8.7419, 53.04858]] },"properties":{"statusId":792288, "Stauts_URL": "https://traewelling.de/status/200133","category": "bus", "Start": "Frankfurt(Main)Hbf","Ziel": "Kassel-Wilhelmshöhe","Linie": "Bus 8757","Entfernung": "194000","Reisedauer": "81","CheckInPoints": "8","Speed": "143.7037037037037", "business": "0", "departure": "2021-09-02T14:05:00+02:00", "arrival": "2021-09-02T15:29:00+02:00", "body": ["9029"]}}
+]}
