@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[7.58955, 47.54741], [7.79243, 47.55114], [7.94858, 47.54148]] },"properties":{"statusId":792288, "Stauts_URL": "https://traewelling.de/status/340526","category": "regionalExp", "Start": "Basel SBB","Ziel": "Stein-Säckingen","Linie": "IR 1971","Entfernung": "27031","Reisedauer": "23","CheckInPoints": "9","Speed": "70.51565217391304", "business": "0", "departure": "2022-05-03T12:11:00+02:00", "arrival": "2022-05-03T12:34:00+02:00", "body": [""]}}
+]}
