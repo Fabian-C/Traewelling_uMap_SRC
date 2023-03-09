@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[8.68572, 50.09992], [8.68116, 50.1013], [8.67955, 50.10334], [8.67568, 50.10186], [8.66885, 50.09901], [8.66478, 50.10451], [8.66477, 50.1076]] },"properties":{"statusId":"793055", "Stauts_URL": "https://traewelling.de/status/793055","category": "tram", "Start": "Südbahnhof, Frankfurt a.M.","Ziel": "Hauptbahnhof, Frankfurt a.M.","Linie": "STR 16","Entfernung": "2541","Reisedauer": "10","CheckInPoints": "3","Speed": "15.246", "business": "0", "departure": "2023-02-16T23:48:00+01:00", "arrival": "2023-02-16T23:58:00+01:00", "body": [""]}}
+]}
