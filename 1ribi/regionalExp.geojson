@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[16.33725, 48.19692], [16.26125, 48.19726], [15.62467, 48.20831], [14.87811, 48.12161], [14.29213, 48.29018], [14.02657, 48.16608], [13.72072, 48.0128], [13.6637, 48.01007], [13.04551, 47.81385]] },"properties":{"statusId":"843247", "Stauts_URL": "https://traewelling.de/status/843247","category": "regionalExp", "Start": "Wien Westbahnhof","Ziel": "Salzburg Hbf","Linie": "WB 906","Entfernung": "264281","Reisedauer": "150","CheckInPoints": "33","Speed": "105.7124", "business": "0", "departure": "2023-03-10T08:38:00+01:00", "arrival": "2023-03-10T11:08:00+01:00", "body": [""]}}
 ]}
