@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[11.59347, 48.15274], [11.58871, 48.15665], [11.5848, 48.15724]] },"properties":{"statusId":"851683", "Stauts_URL": "https://traewelling.de/status/851683","category": "bus", "Start": "Chinesischer Turm, München","Ziel": "Giselastraße, München","Linie": "Bus 154","Entfernung": "859","Reisedauer": "3","CheckInPoints": "3","Speed": "17.18", "business": "0", "departure": "2023-03-13T16:47:00+01:00", "arrival": "2023-03-13T16:50:00+01:00", "body": [""]}}
 ]}
