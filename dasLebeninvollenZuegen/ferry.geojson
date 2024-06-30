@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[9.9698, 53.54527], [9.95223, 53.54394], [9.93581, 53.54308]] },"properties":{"statusId":"931283", "Stauts_URL": "https://traewelling.de/status/931283","category": "ferry", "Start": "Landungsbrücken Brücke 3, Hamburg","Ziel": "Dockland (Fischereihafen), Hamburg","Linie": "Fäh 62","Entfernung": "2262","Reisedauer": "11","CheckInPoints": "4","Speed": "12.33818181818182", "business": "1", "departure": "2023-04-14T19:30:00+02:00", "arrival": "2023-04-14T19:41:00+02:00", "body": ["Gf SCH ALAS AA"]}}
+]}

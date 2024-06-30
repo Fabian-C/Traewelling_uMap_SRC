@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simple Traewelling Maps</title>
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="usernameInput" placeholder="Enter Username">
+	<button id="submitButton">Submit</button>
+	<b> Simple Demo </b>
+	<div id="map" style="width: 600px; height: 400px;"></div>
+<script>
+
+//	var counties = $.ajax({
+//        url:"https://traewelling.de/api/v1/polyline/1414672,1414855,1415302,1416449,1416426,1418726,1418725,1418724,1418717,1418711,1420835,1420822,1420821,1422589,1422717,1423683,1424001,1425869,1426028,1426522,1427432,1427559,1427513,1428013,1428289,1428288,1430013,1430005,1430375,1430516,1430456,1434472,1434138,1433855,1433485,1431580,1431575,1431296,1430999,1430966,1430926,1430809,1434867,1435139,1435133,1437003,1437314,1437278,1442333,1442386,1442447,1442424,1442512,1442675,1448468,1449554,1449799,1449640,1449869,1452163,1452347,1452544,1453517,1453615,1453765,1453922,1454343,1454563,1454562,1456491,1456735,1457058,1457342,1457401,1458001,1458236,1458233,1460331,1460303,1460885,1460993,1461228,1461437,1461777,1461925,1461924,1463812,1464064,1465170,1465410,1465409,1482185,1481824,1479955,1479953,1479747,1479004,1478916,1477909,1477777,1477621,1475853,1475707,1475647,1475250,1474771,1474396,1473837,1473801,1472822,1470513,1470092,1467554,1467381,1483321,1483559,1483555,1485557,1485546,1486987,1487197,1487195,1489142,1491932,1492081,1494266,1494330,1494327,1495871,1495821,1495830,1495828,1499595,1499563,1499814,1501242,1502118,1502359,1504354,1518146,1518100,1518416,1518722,1518899,1531124,1530941,1530235,1530179,1527152,1526805,1526302,1526048,1523175,1523132,1521189,1521172,1531705,1531798,1532573,1532578,1534428,1534524,1535256,1535320,1537999,1538387,1539138,1539271,1539692,1539923,1539919,1542209,1542333,1542619,1542783,1543300,1543298",
+//        dataType: "json",
+//        success: console.log("County data successfully loaded."),
+//        error: function (xhr) {
+//        alert(xhr.statusText)
+//        }
+//    })
+//    $.when(counties).done(function() {
+		const map = L.map('map').setView([50.921, 10.10], 6);
+	const tiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png", {
+		attribution: '&copy; <a href="https://carto.com/attributions" target="carto">CARTO</a>',
+		subdomains: "abcd",
+		maxZoom: 19
+	}
+).addTo(map);
+
+function resetMap() {
+    map.setView([50.921, 10.10], 6);
+    TreawellinggeojsonFeatureCollection.clearLayers();
+}
+
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+const allFeatures = [];
+let geojsonFeatureCollection = {
+	type: 'FeatureCollection',
+	features: []
+};
+
+async function fetchAndExtractGeojson(urlGeo) {
+	  const responseGeo = await fetch(urlGeo);
+	  const responseGeor = await responseGeo.json()
+	  //console.log(responseGeor.data.features);
+	  geojsonFeatureCollection.features.push(...responseGeor.data.features);
+	  //console.log(geojsonFeatureCollection);
+	  const TreawellinggeojsonFeatureCollection = L.geoJSON(geojsonFeatureCollection).addTo(map);
+		  
+	}
+	function fetchAndExtractIds(url) {
+		return fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data.meta.current_page);
+				const ids = data.data.map(item => item.id);
+				const idString = ids.join(',');
+				return delay(1000).then(() => {
+					return fetchAndExtractGeojson('https://traewelling.de/api/v1/polyline/' + idString);
+				}).then(() => {
+					if (data.meta.last_page > data.meta.current_page) {
+						return fetchAndExtractIds(data.links.next);
+					} else {
+						console.log('All IDs:', allIds);
+					}
+				});
+			});
+	}
+	// Get the username input field and submit button elements
+	const usernameInput = document.getElementById("usernameInput");
+	const submitButton = document.getElementById("submitButton");
+	// Add a click event listener to the submit button
+	submitButton.addEventListener("click", function() {
+		const usernameq = usernameInput.value;
+		const apiUrl = 'https://traewelling.de/api/v1/user/' + usernameq + '/statuses?page=0';
+		fetchAndExtractIds(apiUrl);
+
+	});
+	</script>
+	</body>
+	</html>

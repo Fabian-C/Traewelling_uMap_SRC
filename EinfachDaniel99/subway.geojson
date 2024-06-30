@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[8.67928, 50.11397], [8.6739, 50.10899], [8.68003, 50.1024], [8.68572, 50.09992]] },"properties":{"statusId":"2725876", "Stauts_URL": "https://traewelling.de/status/2725876","category": "subway", "Start": "Hauptwache, Frankfurt a.M.","Ziel": "Südbahnhof, Frankfurt a.M.","Linie": "U 8","Entfernung": "2019","Reisedauer": "4","CheckInPoints": "3","Speed": "0", "business": "0", "departure": "2024-06-02T07:56:00+00:00", "arrival": "2024-06-02T08:00:00+00:00", "body": "NULL"}}
+]}

@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[6.1486, 46.20724], [6.16693, 46.20985], [6.16973, 46.27751], [6.19297, 46.31505], [6.32481, 46.37106], [6.33728, 46.455], [6.46191, 46.47875], [6.5005, 46.50838], [6.56142, 46.50853], [6.62687, 46.50567]] },"properties":{"statusId":"463881", "Stauts_URL": "https://traewelling.de/status/463881","category": "ferry", "Start": "Genève-Mt-Blanc (lac)","Ziel": "Lausanne-Ouchy (lac)","Linie": "Schiff","Entfernung": "58848","Reisedauer": "203","CheckInPoints": "9","Speed": "17.393497536945812", "business": "0", "departure": "2022-08-10T14:45:00+02:00", "arrival": "2022-08-10T18:08:00+02:00", "body": [""]}}
+]}
