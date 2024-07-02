@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[7.01386, 51.451378], [6.97046, 51.658247]] },"properties":{"statusId":"2920318", "Stauts_URL": "https://traewelling.de/status/2920318","category": "regionalExp", "Start": "Essen Hbf","Ziel": "Dorsten","Linie": "RRB RB14","Entfernung": "23224","Reisedauer": "30","CheckInPoints": "0","Speed": "0", "business": "0", "departure": "2024-07-02T12:31:00+00:00", "arrival": "2024-07-02T13:01:00+00:00", "body": "NULL"}}
 ]}
