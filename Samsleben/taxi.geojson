@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[9.182589, 48.785052], [9.411113, 48.712869]] },"properties":{"statusId":"3275204", "Stauts_URL": "https://traewelling.de/status/3275204","category": "taxi", "Start": "Stuttgart Hbf","Ziel": "Plochingen","Linie": "Taxi","Entfernung": "18599","Reisedauer": "27","CheckInPoints": "0","Speed": "0", "business": "1", "departure": "2024-08-27T23:40:00+00:00", "arrival": "2024-08-28T00:07:00+00:00", "body": "NULL"}}
 ]}
