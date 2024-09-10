@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[13.555877, 52.513094], [13.509267, 52.455041]] },"properties":{"statusId":"3364117", "Stauts_URL": "https://traewelling.de/status/3364117","category": "taxi", "Start": "Berlin Ostkreuz","Ziel": "Berlin-Schöneweide Pbf","Linie": "muva","Entfernung": "7194","Reisedauer": "20","CheckInPoints": "0","Speed": "0", "business": "0", "departure": "2024-09-10T20:25:00+00:00", "arrival": "2024-09-10T20:45:00+00:00", "body": "NULL"}}
 ]}
