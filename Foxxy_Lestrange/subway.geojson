@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[8.66477, 50.1076], [8.6739, 50.10899]] },"properties":{"statusId":"3385626", "Stauts_URL": "https://traewelling.de/status/3385626","category": "subway", "Start": "Hauptbahnhof, Frankfurt a.M.","Ziel": "Willy-Brandt-Platz, Frankfurt a.M.","Linie": "U 5","Entfernung": "670","Reisedauer": "1","CheckInPoints": "3","Speed": "0", "business": "0", "departure": "2024-09-14T09:40:00+00:00", "arrival": "2024-09-14T09:41:00+00:00", "body": "NULL"}}
 ]}
