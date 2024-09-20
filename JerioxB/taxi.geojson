@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[14.55688, 56.898482], [15.585255, 56.166319]] },"properties":{"statusId":"3415099", "Stauts_URL": "https://traewelling.de/status/3415099","category": "taxi", "Start": "Alvesta station","Ziel": "Karlskrona C","Linie": "FGR","Entfernung": "103092","Reisedauer": "110","CheckInPoints": "0","Speed": "0", "business": "0", "departure": "2024-09-18T20:40:00+00:00", "arrival": "2024-09-18T22:30:00+00:00", "body": "NULL"}}
 ]}
