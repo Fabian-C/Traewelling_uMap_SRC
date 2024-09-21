@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[10.90188, 48.30106], [10.90209, 48.30481], [10.90232, 48.3081], [10.89817, 48.30876], [10.89226, 48.30936]] },"properties":{"statusId":"1490305", "Stauts_URL": "https://traewelling.de/status/1490305","category": "bus", "Start": "Haunstetten Offenbach Karree, Augsburg (Bayern)","Ziel": "Inninger Straße P+R, Augsburg (Bayern)","Linie": "Bus 25","Entfernung": "1544","Reisedauer": "4","CheckInPoints": "3","Speed": "0", "business": "0", "departure": "2023-09-29T02:44:00+00:00", "arrival": "2023-09-29T02:48:00+00:00", "body": "NULL"}}
+]}
