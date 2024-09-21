@@ -1,0 +1,3 @@
+{ "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[9.991591, 53.456198], [9.943292, 53.451074]] },"properties":{"statusId":"3123518", "Stauts_URL": "https://traewelling.de/status/3123518","category": "taxi", "Start": "Hamburg-Harburg","Ziel": "Blaumeisenweg, Hamburg","Linie": "HOP","Entfernung": "3252","Reisedauer": "7","CheckInPoints": "0","Speed": "0", "business": "0", "departure": "2024-08-03T13:40:00+00:00", "arrival": "2024-08-03T13:47:00+00:00", "body": "NULL"}}
+]}
