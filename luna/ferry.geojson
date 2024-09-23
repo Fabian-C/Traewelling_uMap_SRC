@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[12.09266, 54.17664], [12.0974, 54.17671]] },"properties":{"statusId":"3446973", "Stauts_URL": "https://traewelling.de/status/3446973","category": "ferry", "Start": "Warnemünde Fähre, Rostock","Ziel": "Hohe Düne Fähre, Rostock","Linie": "Fähre","Entfernung": "309","Reisedauer": "5","CheckInPoints": "4","Speed": "0", "business": "0", "departure": "2024-09-23T13:30:00+00:00", "arrival": "2024-09-23T13:35:00+00:00", "body": "NULL"}}
 ]}
