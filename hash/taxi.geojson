@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[6.93627, 51.50982], [6.94133, 51.51107], [6.94883, 51.51299], [6.9517, 51.5141], [6.95243, 51.51743], [6.95844, 51.5182]] },"properties":{"statusId":"3574299", "Stauts_URL": "https://traewelling.de/status/3574299","category": "taxi", "Start": "Hauptbahnhof, Bottrop","Ziel": "Malakoffturm, Bottrop","Linie": "ASTTB294","Entfernung": "1972","Reisedauer": "4","CheckInPoints": "2","Speed": "0", "business": "0", "departure": "2024-10-12T19:35:00+00:00", "arrival": "2024-10-12T19:39:00+00:00", "body": "NULL"}}
 ]}
