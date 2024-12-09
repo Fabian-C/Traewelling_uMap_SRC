@@ -1,2 +1,3 @@
 { "type": "FeatureCollection", "features": [ {}
+,{"type":"Feature","geometry":{"type":"LineString","coordinates": [[12.099337, 54.151828], [11.924721, 54.574537]] },"properties":{"statusId":"3947207", "Stauts_URL": "https://traewelling.de/status/3947207","category": "ferry", "Start": "Rostock Seehafen Fähre (Scandlines)","Ziel": "Gedser Færge (Jernbanevejen)","Linie": "Scandlines","Entfernung": "48399","Reisedauer": "120","CheckInPoints": "0","Speed": "0", "business": "0", "departure": "2024-12-09T10:15:00+00:00", "arrival": "2024-12-09T12:15:00+00:00", "body": "NULL"}}
 ]}
