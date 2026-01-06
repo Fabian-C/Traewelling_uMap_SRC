@@ -1,0 +1,46 @@
+{
+  "nationalExpress": {
+    "features": 108,
+    "size_mb": 0.21
+  },
+  "national": {
+    "features": 0,
+    "size_mb": 0.0
+  },
+  "regionalExp": {
+    "features": 17,
+    "size_mb": 0.04
+  },
+  "regional": {
+    "features": 224,
+    "size_mb": 0.29
+  },
+  "suburban": {
+    "features": 216,
+    "size_mb": 0.22
+  },
+  "bus": {
+    "features": 267,
+    "size_mb": 0.22
+  },
+  "tram": {
+    "features": 10,
+    "size_mb": 0.01
+  },
+  "subway": {
+    "features": 161,
+    "size_mb": 0.13
+  },
+  "plane": {
+    "features": 1,
+    "size_mb": 0.0
+  },
+  "ship": {
+    "features": 0,
+    "size_mb": 0.0
+  },
+  "unknown": {
+    "features": 0,
+    "size_mb": 0.0
+  }
+}
