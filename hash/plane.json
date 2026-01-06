@@ -1,1 +1,131 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"LineString","coordinates":[[26.07531,44.56901],[13.51417,52.36454]]},"properties":{"id":6389202,"statusId":6389202,"createdAt":"2025-11-22T12:03:20+00:00","train":{"category":"plane","lineName":"W43109","number":"W43109","origin":{"name":"Aeroport H. Coanda T1","departure":"2025-11-22T11:40:00+00:00"},"destination":{"name":"Berlin Airport BER (Berlin Brandenburg), Terminal 1/2","arrival":"2025-11-22T13:55:00+00:00"},"duration":135,"distance":1266626,"operator":{"name":"WIZZAIR MALTA"}},"realistic":true}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.075308,
+            44.569008
+          ],
+          [
+            13.514171,
+            52.36454
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6389202,
+        "body": "Wizz air flight zur\u00fcck nach Deutschland \u2022 somit endet das Ost Europa Abenteuer wieder einmal, Leider konnte ich aus Zeit Gr\u00fcnden nur die Hinfahrt mit dem Nachtzug bestreiten und muss heute mit dem Flugzeug zur\u00fcck Reisen.",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 11,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-22T12:03:20+00:00",
+        "train": {
+          "trip": 6197867,
+          "hafasId": "31cc8c2d-5e48-4b07-86a7-f6a58d8b44ba",
+          "category": "plane",
+          "mode": null,
+          "number": "W43109",
+          "lineName": "W43109",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1266626,
+          "points": 0,
+          "duration": 135,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168907776,
+            "name": "Aeroport H. Coanda T1",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-22T11:40:00+00:00",
+            "arrivalPlanned": "2025-11-22T11:40:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-22T11:40:00+00:00",
+            "departurePlanned": "2025-11-22T11:40:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168780280,
+            "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-22T13:55:00+00:00",
+            "arrivalPlanned": "2025-11-22T13:55:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-22T13:55:00+00:00",
+            "departurePlanned": "2025-11-22T13:55:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 4337,
+            "identifier": null,
+            "name": "WIZZAIR MALTA"
+          },
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      26.075308,
+                      44.569008
+                    ],
+                    [
+                      13.514171,
+                      52.36454
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6389202
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "plane"
+      }
+    }
+  ]
+}

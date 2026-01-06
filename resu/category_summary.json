@@ -1,46 +1,13 @@
 {
-  "nationalExpress": {
-    "features": 4,
-    "size_mb": 0.01
-  },
-  "national": {
-    "features": 0,
-    "size_mb": 0.0
-  },
-  "regionalExp": {
-    "features": 11,
-    "size_mb": 0.03
-  },
-  "regional": {
-    "features": 8,
-    "size_mb": 0.02
-  },
-  "suburban": {
-    "features": 4,
-    "size_mb": 0.0
-  },
-  "bus": {
-    "features": 1,
-    "size_mb": 0.0
-  },
-  "tram": {
-    "features": 5,
-    "size_mb": 0.0
-  },
-  "subway": {
-    "features": 0,
-    "size_mb": 0.0
-  },
-  "plane": {
-    "features": 0,
-    "size_mb": 0.0
-  },
-  "ship": {
-    "features": 0,
-    "size_mb": 0.0
-  },
-  "unknown": {
-    "features": 0,
-    "size_mb": 0.0
-  }
+  "nationalExpress": 4,
+  "national": 0,
+  "regionalExp": 11,
+  "regional": 8,
+  "suburban": 4,
+  "bus": 1,
+  "tram": 5,
+  "subway": 0,
+  "plane": 0,
+  "ship": 0,
+  "unknown": 0
 }

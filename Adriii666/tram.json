@@ -1,0 +1,3007 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.34064,
+            52.5264
+          ],
+          [
+            13.3435,
+            52.52632
+          ],
+          [
+            13.34602,
+            52.52628
+          ],
+          [
+            13.34602,
+            52.52628
+          ],
+          [
+            13.34792,
+            52.52625
+          ],
+          [
+            13.34969,
+            52.52629
+          ],
+          [
+            13.3506,
+            52.52634
+          ],
+          [
+            13.35311,
+            52.52653
+          ],
+          [
+            13.35458,
+            52.52667
+          ],
+          [
+            13.35458,
+            52.52667
+          ],
+          [
+            13.35521,
+            52.52671
+          ],
+          [
+            13.35539,
+            52.52666
+          ],
+          [
+            13.35547,
+            52.52662
+          ],
+          [
+            13.35556,
+            52.52655
+          ],
+          [
+            13.35699,
+            52.52485
+          ],
+          [
+            13.3571,
+            52.52469
+          ],
+          [
+            13.35717,
+            52.52456
+          ],
+          [
+            13.35721,
+            52.52437
+          ],
+          [
+            13.35721,
+            52.52425
+          ],
+          [
+            13.35712,
+            52.52395
+          ],
+          [
+            13.35712,
+            52.52386
+          ],
+          [
+            13.35717,
+            52.52375
+          ],
+          [
+            13.35722,
+            52.5237
+          ],
+          [
+            13.35743,
+            52.52363
+          ],
+          [
+            13.35802,
+            52.52357
+          ],
+          [
+            13.35802,
+            52.52357
+          ],
+          [
+            13.35914,
+            52.52348
+          ],
+          [
+            13.35956,
+            52.52349
+          ],
+          [
+            13.3598,
+            52.52352
+          ],
+          [
+            13.36263,
+            52.52439
+          ],
+          [
+            13.36263,
+            52.52439
+          ],
+          [
+            13.36972,
+            52.52657
+          ],
+          [
+            13.369713,
+            52.526585
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6685228,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2026-01-01T03:23:53+00:00",
+        "train": {
+          "trip": 6482369,
+          "hafasId": "20251231_28:16_de-VBB_282165640",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M10",
+          "lineName": "M10",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 2295,
+          "points": 3,
+          "duration": 8,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 23767,
+            "name": "Turmstr. (U), Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 730740,
+            "arrival": "2026-01-01T03:16:00+00:00",
+            "arrivalPlanned": "2026-01-01T03:16:00+00:00",
+            "arrivalReal": "2026-01-01T03:16:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2026-01-01T03:16:00+00:00",
+            "departurePlanned": "2026-01-01T03:16:00+00:00",
+            "departureReal": "2026-01-01T03:16:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168900876,
+            "name": "S+U Berlin Hauptbahnhof",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2026-01-01T03:24:00+00:00",
+            "arrivalPlanned": "2026-01-01T03:24:00+00:00",
+            "arrivalReal": "2026-01-01T03:24:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2026-01-01T03:28:00+00:00",
+            "departurePlanned": "2026-01-01T03:28:00+00:00",
+            "departureReal": "2026-01-01T03:28:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.34064,
+                      52.5264
+                    ],
+                    [
+                      13.3435,
+                      52.52632
+                    ],
+                    [
+                      13.34602,
+                      52.52628
+                    ],
+                    [
+                      13.34602,
+                      52.52628
+                    ],
+                    [
+                      13.34792,
+                      52.52625
+                    ],
+                    [
+                      13.34969,
+                      52.52629
+                    ],
+                    [
+                      13.3506,
+                      52.52634
+                    ],
+                    [
+                      13.35311,
+                      52.52653
+                    ],
+                    [
+                      13.35458,
+                      52.52667
+                    ],
+                    [
+                      13.35458,
+                      52.52667
+                    ],
+                    [
+                      13.35521,
+                      52.52671
+                    ],
+                    [
+                      13.35539,
+                      52.52666
+                    ],
+                    [
+                      13.35547,
+                      52.52662
+                    ],
+                    [
+                      13.35556,
+                      52.52655
+                    ],
+                    [
+                      13.35699,
+                      52.52485
+                    ],
+                    [
+                      13.3571,
+                      52.52469
+                    ],
+                    [
+                      13.35717,
+                      52.52456
+                    ],
+                    [
+                      13.35721,
+                      52.52437
+                    ],
+                    [
+                      13.35721,
+                      52.52425
+                    ],
+                    [
+                      13.35712,
+                      52.52395
+                    ],
+                    [
+                      13.35712,
+                      52.52386
+                    ],
+                    [
+                      13.35717,
+                      52.52375
+                    ],
+                    [
+                      13.35722,
+                      52.5237
+                    ],
+                    [
+                      13.35743,
+                      52.52363
+                    ],
+                    [
+                      13.35802,
+                      52.52357
+                    ],
+                    [
+                      13.35802,
+                      52.52357
+                    ],
+                    [
+                      13.35914,
+                      52.52348
+                    ],
+                    [
+                      13.35956,
+                      52.52349
+                    ],
+                    [
+                      13.3598,
+                      52.52352
+                    ],
+                    [
+                      13.36263,
+                      52.52439
+                    ],
+                    [
+                      13.36263,
+                      52.52439
+                    ],
+                    [
+                      13.36972,
+                      52.52657
+                    ],
+                    [
+                      13.369713,
+                      52.526585
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6685228
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.41356,
+            52.54925
+          ],
+          [
+            13.41328,
+            52.54767
+          ],
+          [
+            13.41254,
+            52.54491
+          ],
+          [
+            13.41254,
+            52.54491
+          ],
+          [
+            13.41226,
+            52.5438
+          ],
+          [
+            13.41207,
+            52.54189
+          ],
+          [
+            13.41204,
+            52.5409
+          ],
+          [
+            13.41197,
+            52.54075
+          ],
+          [
+            13.41133,
+            52.54014
+          ],
+          [
+            13.41133,
+            52.54014
+          ],
+          [
+            13.4076,
+            52.5366
+          ],
+          [
+            13.4076,
+            52.5366
+          ],
+          [
+            13.40643,
+            52.53542
+          ],
+          [
+            13.40563,
+            52.53454
+          ],
+          [
+            13.40566,
+            52.53452
+          ],
+          [
+            13.40535,
+            52.53419
+          ],
+          [
+            13.40523,
+            52.53412
+          ],
+          [
+            13.40424,
+            52.53306
+          ],
+          [
+            13.40267,
+            52.53147
+          ],
+          [
+            13.40164,
+            52.53021
+          ],
+          [
+            13.40167,
+            52.5302
+          ],
+          [
+            13.40145,
+            52.5299
+          ],
+          [
+            13.40141,
+            52.52979
+          ],
+          [
+            13.40143,
+            52.52964
+          ],
+          [
+            13.40151,
+            52.52948
+          ],
+          [
+            13.40168,
+            52.52924
+          ],
+          [
+            13.40242,
+            52.52836
+          ],
+          [
+            13.40326,
+            52.5273
+          ],
+          [
+            13.40333,
+            52.52718
+          ],
+          [
+            13.40343,
+            52.52692
+          ],
+          [
+            13.40372,
+            52.52598
+          ],
+          [
+            13.40368,
+            52.52568
+          ],
+          [
+            13.40327,
+            52.52487
+          ],
+          [
+            13.40286,
+            52.52417
+          ],
+          [
+            13.40243,
+            52.522724
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6670664,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 3,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-30T01:17:06+00:00",
+        "train": {
+          "trip": 6469142,
+          "hafasId": "20251229_25:51_de-VBB_282164554",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M1",
+          "lineName": "M1",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 3076,
+          "points": 3,
+          "duration": 10,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 8709,
+            "name": "Sch\u00f6nhauser Allee, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732618,
+            "arrival": "2025-12-30T01:13:00+00:00",
+            "arrivalPlanned": "2025-12-30T01:13:00+00:00",
+            "arrivalReal": "2025-12-30T01:13:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-30T01:13:00+00:00",
+            "departurePlanned": "2025-12-30T01:13:00+00:00",
+            "departureReal": "2025-12-30T01:13:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168900857,
+            "name": "S Hackescher Markt (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-30T01:23:00+00:00",
+            "arrivalPlanned": "2025-12-30T01:23:00+00:00",
+            "arrivalReal": "2025-12-30T01:23:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-30T01:23:00+00:00",
+            "departurePlanned": "2025-12-30T01:23:00+00:00",
+            "departureReal": "2025-12-30T01:23:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.41356,
+                      52.54925
+                    ],
+                    [
+                      13.41328,
+                      52.54767
+                    ],
+                    [
+                      13.41254,
+                      52.54491
+                    ],
+                    [
+                      13.41254,
+                      52.54491
+                    ],
+                    [
+                      13.41226,
+                      52.5438
+                    ],
+                    [
+                      13.41207,
+                      52.54189
+                    ],
+                    [
+                      13.41204,
+                      52.5409
+                    ],
+                    [
+                      13.41197,
+                      52.54075
+                    ],
+                    [
+                      13.41133,
+                      52.54014
+                    ],
+                    [
+                      13.41133,
+                      52.54014
+                    ],
+                    [
+                      13.4076,
+                      52.5366
+                    ],
+                    [
+                      13.4076,
+                      52.5366
+                    ],
+                    [
+                      13.40643,
+                      52.53542
+                    ],
+                    [
+                      13.40563,
+                      52.53454
+                    ],
+                    [
+                      13.40566,
+                      52.53452
+                    ],
+                    [
+                      13.40535,
+                      52.53419
+                    ],
+                    [
+                      13.40523,
+                      52.53412
+                    ],
+                    [
+                      13.40424,
+                      52.53306
+                    ],
+                    [
+                      13.40267,
+                      52.53147
+                    ],
+                    [
+                      13.40164,
+                      52.53021
+                    ],
+                    [
+                      13.40167,
+                      52.5302
+                    ],
+                    [
+                      13.40145,
+                      52.5299
+                    ],
+                    [
+                      13.40141,
+                      52.52979
+                    ],
+                    [
+                      13.40143,
+                      52.52964
+                    ],
+                    [
+                      13.40151,
+                      52.52948
+                    ],
+                    [
+                      13.40168,
+                      52.52924
+                    ],
+                    [
+                      13.40242,
+                      52.52836
+                    ],
+                    [
+                      13.40326,
+                      52.5273
+                    ],
+                    [
+                      13.40333,
+                      52.52718
+                    ],
+                    [
+                      13.40343,
+                      52.52692
+                    ],
+                    [
+                      13.40372,
+                      52.52598
+                    ],
+                    [
+                      13.40368,
+                      52.52568
+                    ],
+                    [
+                      13.40327,
+                      52.52487
+                    ],
+                    [
+                      13.40286,
+                      52.52417
+                    ],
+                    [
+                      13.40243,
+                      52.522724
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6670664
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.34064,
+            52.5264
+          ],
+          [
+            13.3435,
+            52.52632
+          ],
+          [
+            13.34602,
+            52.52628
+          ],
+          [
+            13.34602,
+            52.52628
+          ],
+          [
+            13.34792,
+            52.52625
+          ],
+          [
+            13.34969,
+            52.52629
+          ],
+          [
+            13.3506,
+            52.52634
+          ],
+          [
+            13.35311,
+            52.52653
+          ],
+          [
+            13.35458,
+            52.52667
+          ],
+          [
+            13.35458,
+            52.52667
+          ],
+          [
+            13.35521,
+            52.52671
+          ],
+          [
+            13.35539,
+            52.52666
+          ],
+          [
+            13.35547,
+            52.52662
+          ],
+          [
+            13.35556,
+            52.52655
+          ],
+          [
+            13.35699,
+            52.52485
+          ],
+          [
+            13.3571,
+            52.52469
+          ],
+          [
+            13.35717,
+            52.52456
+          ],
+          [
+            13.35721,
+            52.52437
+          ],
+          [
+            13.35721,
+            52.52425
+          ],
+          [
+            13.35712,
+            52.52395
+          ],
+          [
+            13.35712,
+            52.52386
+          ],
+          [
+            13.35717,
+            52.52375
+          ],
+          [
+            13.35722,
+            52.5237
+          ],
+          [
+            13.35743,
+            52.52363
+          ],
+          [
+            13.35802,
+            52.52357
+          ],
+          [
+            13.35802,
+            52.52357
+          ],
+          [
+            13.35914,
+            52.52348
+          ],
+          [
+            13.35956,
+            52.52349
+          ],
+          [
+            13.3598,
+            52.52352
+          ],
+          [
+            13.36263,
+            52.52439
+          ],
+          [
+            13.36263,
+            52.52439
+          ],
+          [
+            13.36972,
+            52.52657
+          ],
+          [
+            13.369713,
+            52.526585
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6612997,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-21T03:04:57+00:00",
+        "train": {
+          "trip": 6414929,
+          "hafasId": "20251221_04:01_de-VBB_282165618",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M10",
+          "lineName": "M10",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 2265,
+          "points": 3,
+          "duration": 8,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 23767,
+            "name": "Turmstr. (U), Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 730740,
+            "arrival": "2025-12-21T03:01:00+00:00",
+            "arrivalPlanned": "2025-12-21T03:01:00+00:00",
+            "arrivalReal": "2025-12-21T03:01:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-21T03:01:00+00:00",
+            "departurePlanned": "2025-12-21T03:01:00+00:00",
+            "departureReal": "2025-12-21T03:01:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168900876,
+            "name": "S+U Berlin Hauptbahnhof",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-21T03:09:00+00:00",
+            "arrivalPlanned": "2025-12-21T03:09:00+00:00",
+            "arrivalReal": "2025-12-21T03:09:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-21T03:13:00+00:00",
+            "departurePlanned": "2025-12-21T03:13:00+00:00",
+            "departureReal": "2025-12-21T03:13:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.34064,
+                      52.5264
+                    ],
+                    [
+                      13.3435,
+                      52.52632
+                    ],
+                    [
+                      13.34602,
+                      52.52628
+                    ],
+                    [
+                      13.34602,
+                      52.52628
+                    ],
+                    [
+                      13.34792,
+                      52.52625
+                    ],
+                    [
+                      13.34969,
+                      52.52629
+                    ],
+                    [
+                      13.3506,
+                      52.52634
+                    ],
+                    [
+                      13.35311,
+                      52.52653
+                    ],
+                    [
+                      13.35458,
+                      52.52667
+                    ],
+                    [
+                      13.35458,
+                      52.52667
+                    ],
+                    [
+                      13.35521,
+                      52.52671
+                    ],
+                    [
+                      13.35539,
+                      52.52666
+                    ],
+                    [
+                      13.35547,
+                      52.52662
+                    ],
+                    [
+                      13.35556,
+                      52.52655
+                    ],
+                    [
+                      13.35699,
+                      52.52485
+                    ],
+                    [
+                      13.3571,
+                      52.52469
+                    ],
+                    [
+                      13.35717,
+                      52.52456
+                    ],
+                    [
+                      13.35721,
+                      52.52437
+                    ],
+                    [
+                      13.35721,
+                      52.52425
+                    ],
+                    [
+                      13.35712,
+                      52.52395
+                    ],
+                    [
+                      13.35712,
+                      52.52386
+                    ],
+                    [
+                      13.35717,
+                      52.52375
+                    ],
+                    [
+                      13.35722,
+                      52.5237
+                    ],
+                    [
+                      13.35743,
+                      52.52363
+                    ],
+                    [
+                      13.35802,
+                      52.52357
+                    ],
+                    [
+                      13.35802,
+                      52.52357
+                    ],
+                    [
+                      13.35914,
+                      52.52348
+                    ],
+                    [
+                      13.35956,
+                      52.52349
+                    ],
+                    [
+                      13.3598,
+                      52.52352
+                    ],
+                    [
+                      13.36263,
+                      52.52439
+                    ],
+                    [
+                      13.36263,
+                      52.52439
+                    ],
+                    [
+                      13.36972,
+                      52.52657
+                    ],
+                    [
+                      13.369713,
+                      52.526585
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6612997
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.41098,
+            52.52849
+          ],
+          [
+            13.41149,
+            52.52839
+          ],
+          [
+            13.41455,
+            52.52752
+          ],
+          [
+            13.4165,
+            52.52664
+          ],
+          [
+            13.41654,
+            52.52663
+          ],
+          [
+            13.41909,
+            52.52551
+          ],
+          [
+            13.419888,
+            52.525203
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6591281,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-18T13:27:14+00:00",
+        "train": {
+          "trip": 6394784,
+          "hafasId": "20251218_14:30_de-VBB_281803121",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M8",
+          "lineName": "M8",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 642,
+          "points": 3,
+          "duration": 3,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 22039,
+            "name": "Rosa-Luxemburg-Platz (U), Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732546,
+            "arrival": "2025-12-18T13:46:00+00:00",
+            "arrivalPlanned": "2025-12-18T13:46:00+00:00",
+            "arrivalReal": "2025-12-18T13:46:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-18T13:46:00+00:00",
+            "departurePlanned": "2025-12-18T13:46:00+00:00",
+            "departureReal": "2025-12-18T13:46:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 11332,
+            "name": "Mollstr./Otto-Braun-Str., Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732567,
+            "arrival": "2025-12-18T13:49:00+00:00",
+            "arrivalPlanned": "2025-12-18T13:49:00+00:00",
+            "arrivalReal": "2025-12-18T13:49:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-18T13:49:00+00:00",
+            "departurePlanned": "2025-12-18T13:49:00+00:00",
+            "departureReal": "2025-12-18T13:49:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.41098,
+                      52.52849
+                    ],
+                    [
+                      13.41149,
+                      52.52839
+                    ],
+                    [
+                      13.41455,
+                      52.52752
+                    ],
+                    [
+                      13.4165,
+                      52.52664
+                    ],
+                    [
+                      13.41654,
+                      52.52663
+                    ],
+                    [
+                      13.41909,
+                      52.52551
+                    ],
+                    [
+                      13.419888,
+                      52.525203
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6591281
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.40421,
+            52.56949
+          ],
+          [
+            13.40514,
+            52.56962
+          ],
+          [
+            13.40685,
+            52.57006
+          ],
+          [
+            13.40768,
+            52.5702
+          ],
+          [
+            13.4086,
+            52.57043
+          ],
+          [
+            13.4086,
+            52.57043
+          ],
+          [
+            13.40921,
+            52.57057
+          ],
+          [
+            13.40977,
+            52.57077
+          ],
+          [
+            13.40994,
+            52.57079
+          ],
+          [
+            13.41003,
+            52.57077
+          ],
+          [
+            13.41019,
+            52.5707
+          ],
+          [
+            13.41122,
+            52.56957
+          ],
+          [
+            13.41197,
+            52.56826
+          ],
+          [
+            13.4121,
+            52.56782
+          ],
+          [
+            13.411533,
+            52.567238
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6591254,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-18T13:24:10+00:00",
+        "train": {
+          "trip": 6394758,
+          "hafasId": "20251218_14:09_de-VBB_281778158",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M1",
+          "lineName": "M1",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 821,
+          "points": 3,
+          "duration": 6,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168729764,
+            "name": "Berlin, Rathaus Pankow",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-18T13:24:00+00:00",
+            "arrivalPlanned": "2025-12-18T13:22:00+00:00",
+            "arrivalReal": "2025-12-18T13:24:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-18T13:24:00+00:00",
+            "departurePlanned": "2025-12-18T13:22:00+00:00",
+            "departureReal": "2025-12-18T13:24:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": true,
+            "isDepartureDelayed": true,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168725956,
+            "name": "S+U Pankow (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-18T13:30:00+00:00",
+            "arrivalPlanned": "2025-12-18T13:28:00+00:00",
+            "arrivalReal": "2025-12-18T13:30:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-18T13:30:00+00:00",
+            "departurePlanned": "2025-12-18T13:28:00+00:00",
+            "departureReal": "2025-12-18T13:30:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": true,
+            "isDepartureDelayed": true,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.40421,
+                      52.56949
+                    ],
+                    [
+                      13.40514,
+                      52.56962
+                    ],
+                    [
+                      13.40685,
+                      52.57006
+                    ],
+                    [
+                      13.40768,
+                      52.5702
+                    ],
+                    [
+                      13.4086,
+                      52.57043
+                    ],
+                    [
+                      13.4086,
+                      52.57043
+                    ],
+                    [
+                      13.40921,
+                      52.57057
+                    ],
+                    [
+                      13.40977,
+                      52.57077
+                    ],
+                    [
+                      13.40994,
+                      52.57079
+                    ],
+                    [
+                      13.41003,
+                      52.57077
+                    ],
+                    [
+                      13.41019,
+                      52.5707
+                    ],
+                    [
+                      13.41122,
+                      52.56957
+                    ],
+                    [
+                      13.41197,
+                      52.56826
+                    ],
+                    [
+                      13.4121,
+                      52.56782
+                    ],
+                    [
+                      13.411533,
+                      52.567238
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6591254
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.41132,
+            52.52105
+          ],
+          [
+            13.41175,
+            52.52079
+          ],
+          [
+            13.41188,
+            52.52075
+          ],
+          [
+            13.412,
+            52.52074
+          ],
+          [
+            13.41208,
+            52.52075
+          ],
+          [
+            13.41298,
+            52.52117
+          ],
+          [
+            13.414,
+            52.52168
+          ],
+          [
+            13.4143,
+            52.52188
+          ],
+          [
+            13.41499,
+            52.52237
+          ],
+          [
+            13.41747,
+            52.52435
+          ],
+          [
+            13.41764,
+            52.52442
+          ],
+          [
+            13.41785,
+            52.52443
+          ],
+          [
+            13.41798,
+            52.5244
+          ],
+          [
+            13.41826,
+            52.52429
+          ],
+          [
+            13.41844,
+            52.52424
+          ],
+          [
+            13.41867,
+            52.52424
+          ],
+          [
+            13.41884,
+            52.52429
+          ],
+          [
+            13.41897,
+            52.52437
+          ],
+          [
+            13.41934,
+            52.52471
+          ],
+          [
+            13.419888,
+            52.525203
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6583165,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-17T13:39:43+00:00",
+        "train": {
+          "trip": 6386960,
+          "hafasId": "20251217_14:28_de-VBB_281790240",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M4",
+          "lineName": "M4",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 770,
+          "points": 3,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168972577,
+            "name": "S+U Alexanderplatz Bhf/Gontardstr. (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-17T13:39:00+00:00",
+            "arrivalPlanned": "2025-12-17T13:32:00+00:00",
+            "arrivalReal": "2025-12-17T13:39:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-17T13:39:00+00:00",
+            "departurePlanned": "2025-12-17T13:32:00+00:00",
+            "departureReal": "2025-12-17T13:39:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": true,
+            "isDepartureDelayed": true,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 11332,
+            "name": "Mollstr./Otto-Braun-Str., Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732567,
+            "arrival": "2025-12-17T13:44:00+00:00",
+            "arrivalPlanned": "2025-12-17T13:37:00+00:00",
+            "arrivalReal": "2025-12-17T13:44:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-17T13:44:00+00:00",
+            "departurePlanned": "2025-12-17T13:37:00+00:00",
+            "departureReal": "2025-12-17T13:44:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": true,
+            "isDepartureDelayed": true,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.41132,
+                      52.52105
+                    ],
+                    [
+                      13.41175,
+                      52.52079
+                    ],
+                    [
+                      13.41188,
+                      52.52075
+                    ],
+                    [
+                      13.412,
+                      52.52074
+                    ],
+                    [
+                      13.41208,
+                      52.52075
+                    ],
+                    [
+                      13.41298,
+                      52.52117
+                    ],
+                    [
+                      13.414,
+                      52.52168
+                    ],
+                    [
+                      13.4143,
+                      52.52188
+                    ],
+                    [
+                      13.41499,
+                      52.52237
+                    ],
+                    [
+                      13.41747,
+                      52.52435
+                    ],
+                    [
+                      13.41764,
+                      52.52442
+                    ],
+                    [
+                      13.41785,
+                      52.52443
+                    ],
+                    [
+                      13.41798,
+                      52.5244
+                    ],
+                    [
+                      13.41826,
+                      52.52429
+                    ],
+                    [
+                      13.41844,
+                      52.52424
+                    ],
+                    [
+                      13.41867,
+                      52.52424
+                    ],
+                    [
+                      13.41884,
+                      52.52429
+                    ],
+                    [
+                      13.41897,
+                      52.52437
+                    ],
+                    [
+                      13.41934,
+                      52.52471
+                    ],
+                    [
+                      13.419888,
+                      52.525203
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6583165
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.40566,
+            52.53452
+          ],
+          [
+            13.40535,
+            52.53419
+          ],
+          [
+            13.40523,
+            52.53412
+          ],
+          [
+            13.40424,
+            52.53306
+          ],
+          [
+            13.40267,
+            52.53147
+          ],
+          [
+            13.40164,
+            52.53021
+          ],
+          [
+            13.40167,
+            52.5302
+          ],
+          [
+            13.40145,
+            52.5299
+          ],
+          [
+            13.40141,
+            52.52979
+          ],
+          [
+            13.40143,
+            52.52964
+          ],
+          [
+            13.40151,
+            52.52948
+          ],
+          [
+            13.40168,
+            52.52924
+          ],
+          [
+            13.40242,
+            52.52836
+          ],
+          [
+            13.40326,
+            52.5273
+          ],
+          [
+            13.40333,
+            52.52718
+          ],
+          [
+            13.40343,
+            52.52692
+          ],
+          [
+            13.40372,
+            52.52598
+          ],
+          [
+            13.40368,
+            52.52568
+          ],
+          [
+            13.40327,
+            52.52487
+          ],
+          [
+            13.40286,
+            52.52417
+          ],
+          [
+            13.40243,
+            52.522724
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6563247,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-14T22:57:31+00:00",
+        "train": {
+          "trip": 6367581,
+          "hafasId": "20251214_23:31_de-VBB_281778152",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M1",
+          "lineName": "M1",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1295,
+          "points": 3,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 19571,
+            "name": "Zionskirchplatz, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732569,
+            "arrival": "2025-12-14T22:57:00+00:00",
+            "arrivalPlanned": "2025-12-14T22:57:00+00:00",
+            "arrivalReal": "2025-12-14T22:57:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-14T22:57:00+00:00",
+            "departurePlanned": "2025-12-14T22:57:00+00:00",
+            "departureReal": "2025-12-14T22:57:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168900857,
+            "name": "S Hackescher Markt (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-14T23:02:00+00:00",
+            "arrivalPlanned": "2025-12-14T23:02:00+00:00",
+            "arrivalReal": "2025-12-14T23:02:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-14T23:02:00+00:00",
+            "departurePlanned": "2025-12-14T23:02:00+00:00",
+            "departureReal": "2025-12-14T23:02:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.40566,
+                      52.53452
+                    ],
+                    [
+                      13.40535,
+                      52.53419
+                    ],
+                    [
+                      13.40523,
+                      52.53412
+                    ],
+                    [
+                      13.40424,
+                      52.53306
+                    ],
+                    [
+                      13.40267,
+                      52.53147
+                    ],
+                    [
+                      13.40164,
+                      52.53021
+                    ],
+                    [
+                      13.40167,
+                      52.5302
+                    ],
+                    [
+                      13.40145,
+                      52.5299
+                    ],
+                    [
+                      13.40141,
+                      52.52979
+                    ],
+                    [
+                      13.40143,
+                      52.52964
+                    ],
+                    [
+                      13.40151,
+                      52.52948
+                    ],
+                    [
+                      13.40168,
+                      52.52924
+                    ],
+                    [
+                      13.40242,
+                      52.52836
+                    ],
+                    [
+                      13.40326,
+                      52.5273
+                    ],
+                    [
+                      13.40333,
+                      52.52718
+                    ],
+                    [
+                      13.40343,
+                      52.52692
+                    ],
+                    [
+                      13.40372,
+                      52.52598
+                    ],
+                    [
+                      13.40368,
+                      52.52568
+                    ],
+                    [
+                      13.40327,
+                      52.52487
+                    ],
+                    [
+                      13.40286,
+                      52.52417
+                    ],
+                    [
+                      13.40243,
+                      52.522724
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6563247
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.40341,
+            52.52262
+          ],
+          [
+            13.40365,
+            52.5227
+          ],
+          [
+            13.40372,
+            52.52275
+          ],
+          [
+            13.40376,
+            52.52282
+          ],
+          [
+            13.40376,
+            52.5229
+          ],
+          [
+            13.40373,
+            52.52295
+          ],
+          [
+            13.40364,
+            52.52302
+          ],
+          [
+            13.40267,
+            52.52347
+          ],
+          [
+            13.40259,
+            52.52355
+          ],
+          [
+            13.40256,
+            52.52363
+          ],
+          [
+            13.4026,
+            52.52375
+          ],
+          [
+            13.40327,
+            52.52487
+          ],
+          [
+            13.4035,
+            52.52532
+          ],
+          [
+            13.4035,
+            52.52532
+          ],
+          [
+            13.40368,
+            52.52568
+          ],
+          [
+            13.40372,
+            52.52598
+          ],
+          [
+            13.40333,
+            52.52718
+          ],
+          [
+            13.40317,
+            52.52743
+          ],
+          [
+            13.40168,
+            52.52924
+          ],
+          [
+            13.40151,
+            52.52948
+          ],
+          [
+            13.40143,
+            52.52964
+          ],
+          [
+            13.40141,
+            52.52979
+          ],
+          [
+            13.40145,
+            52.5299
+          ],
+          [
+            13.40167,
+            52.5302
+          ],
+          [
+            13.40167,
+            52.5302
+          ],
+          [
+            13.40273,
+            52.53149
+          ],
+          [
+            13.40427,
+            52.53304
+          ],
+          [
+            13.40558,
+            52.53443
+          ],
+          [
+            13.405622,
+            52.534561
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6563246,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-14T22:57:18+00:00",
+        "train": {
+          "trip": 6367580,
+          "hafasId": "20251214_21:00_de-VBB_281777815",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M1",
+          "lineName": "M1",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1520,
+          "points": 1,
+          "duration": 7,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168900857,
+            "name": "S Hackescher Markt (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-14T20:00:00+00:00",
+            "arrivalPlanned": "2025-12-14T20:00:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-14T20:00:00+00:00",
+            "departurePlanned": "2025-12-14T20:00:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 19571,
+            "name": "Zionskirchplatz, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732569,
+            "arrival": "2025-12-14T20:07:00+00:00",
+            "arrivalPlanned": "2025-12-14T20:07:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-14T20:07:00+00:00",
+            "departurePlanned": "2025-12-14T20:07:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.40341,
+                      52.52262
+                    ],
+                    [
+                      13.40365,
+                      52.5227
+                    ],
+                    [
+                      13.40372,
+                      52.52275
+                    ],
+                    [
+                      13.40376,
+                      52.52282
+                    ],
+                    [
+                      13.40376,
+                      52.5229
+                    ],
+                    [
+                      13.40373,
+                      52.52295
+                    ],
+                    [
+                      13.40364,
+                      52.52302
+                    ],
+                    [
+                      13.40267,
+                      52.52347
+                    ],
+                    [
+                      13.40259,
+                      52.52355
+                    ],
+                    [
+                      13.40256,
+                      52.52363
+                    ],
+                    [
+                      13.4026,
+                      52.52375
+                    ],
+                    [
+                      13.40327,
+                      52.52487
+                    ],
+                    [
+                      13.4035,
+                      52.52532
+                    ],
+                    [
+                      13.4035,
+                      52.52532
+                    ],
+                    [
+                      13.40368,
+                      52.52568
+                    ],
+                    [
+                      13.40372,
+                      52.52598
+                    ],
+                    [
+                      13.40333,
+                      52.52718
+                    ],
+                    [
+                      13.40317,
+                      52.52743
+                    ],
+                    [
+                      13.40168,
+                      52.52924
+                    ],
+                    [
+                      13.40151,
+                      52.52948
+                    ],
+                    [
+                      13.40143,
+                      52.52964
+                    ],
+                    [
+                      13.40141,
+                      52.52979
+                    ],
+                    [
+                      13.40145,
+                      52.5299
+                    ],
+                    [
+                      13.40167,
+                      52.5302
+                    ],
+                    [
+                      13.40167,
+                      52.5302
+                    ],
+                    [
+                      13.40273,
+                      52.53149
+                    ],
+                    [
+                      13.40427,
+                      52.53304
+                    ],
+                    [
+                      13.40558,
+                      52.53443
+                    ],
+                    [
+                      13.405622,
+                      52.534561
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6563246
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.42014,
+            52.52539
+          ],
+          [
+            13.41959,
+            52.52493
+          ],
+          [
+            13.41897,
+            52.52437
+          ],
+          [
+            13.41884,
+            52.52429
+          ],
+          [
+            13.41867,
+            52.52424
+          ],
+          [
+            13.41844,
+            52.52424
+          ],
+          [
+            13.41826,
+            52.52429
+          ],
+          [
+            13.41798,
+            52.5244
+          ],
+          [
+            13.41785,
+            52.52443
+          ],
+          [
+            13.41764,
+            52.52442
+          ],
+          [
+            13.41747,
+            52.52435
+          ],
+          [
+            13.41467,
+            52.52212
+          ],
+          [
+            13.4143,
+            52.52188
+          ],
+          [
+            13.414,
+            52.52168
+          ],
+          [
+            13.41298,
+            52.52117
+          ],
+          [
+            13.41208,
+            52.52075
+          ],
+          [
+            13.412,
+            52.52074
+          ],
+          [
+            13.41188,
+            52.52075
+          ],
+          [
+            13.41175,
+            52.52079
+          ],
+          [
+            13.41133,
+            52.52105
+          ],
+          [
+            13.411285,
+            52.521027
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6544547,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 2,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-12T16:53:35+00:00",
+        "train": {
+          "trip": 6350905,
+          "hafasId": "20251212_16:28_de-VBB_280852375",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M5",
+          "lineName": "M5",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 892,
+          "points": 3,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 11332,
+            "name": "Mollstr./Otto-Braun-Str., Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732567,
+            "arrival": "2025-12-12T16:05:00+00:00",
+            "arrivalPlanned": "2025-12-12T16:05:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-12T16:05:00+00:00",
+            "departurePlanned": "2025-12-12T16:05:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168972577,
+            "name": "S+U Alexanderplatz Bhf/Gontardstr. (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-12T16:10:00+00:00",
+            "arrivalPlanned": "2025-12-12T16:10:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-12T16:10:00+00:00",
+            "departurePlanned": "2025-12-12T16:10:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.42014,
+                      52.52539
+                    ],
+                    [
+                      13.41959,
+                      52.52493
+                    ],
+                    [
+                      13.41897,
+                      52.52437
+                    ],
+                    [
+                      13.41884,
+                      52.52429
+                    ],
+                    [
+                      13.41867,
+                      52.52424
+                    ],
+                    [
+                      13.41844,
+                      52.52424
+                    ],
+                    [
+                      13.41826,
+                      52.52429
+                    ],
+                    [
+                      13.41798,
+                      52.5244
+                    ],
+                    [
+                      13.41785,
+                      52.52443
+                    ],
+                    [
+                      13.41764,
+                      52.52442
+                    ],
+                    [
+                      13.41747,
+                      52.52435
+                    ],
+                    [
+                      13.41467,
+                      52.52212
+                    ],
+                    [
+                      13.4143,
+                      52.52188
+                    ],
+                    [
+                      13.414,
+                      52.52168
+                    ],
+                    [
+                      13.41298,
+                      52.52117
+                    ],
+                    [
+                      13.41208,
+                      52.52075
+                    ],
+                    [
+                      13.412,
+                      52.52074
+                    ],
+                    [
+                      13.41188,
+                      52.52075
+                    ],
+                    [
+                      13.41175,
+                      52.52079
+                    ],
+                    [
+                      13.41133,
+                      52.52105
+                    ],
+                    [
+                      13.411285,
+                      52.521027
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6544547
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.41132,
+            52.52105
+          ],
+          [
+            13.41175,
+            52.52079
+          ],
+          [
+            13.41188,
+            52.52075
+          ],
+          [
+            13.412,
+            52.52074
+          ],
+          [
+            13.41208,
+            52.52075
+          ],
+          [
+            13.41298,
+            52.52117
+          ],
+          [
+            13.414,
+            52.52168
+          ],
+          [
+            13.4143,
+            52.52188
+          ],
+          [
+            13.41499,
+            52.52237
+          ],
+          [
+            13.41747,
+            52.52435
+          ],
+          [
+            13.41764,
+            52.52442
+          ],
+          [
+            13.41785,
+            52.52443
+          ],
+          [
+            13.41798,
+            52.5244
+          ],
+          [
+            13.41826,
+            52.52429
+          ],
+          [
+            13.41844,
+            52.52424
+          ],
+          [
+            13.41867,
+            52.52424
+          ],
+          [
+            13.41884,
+            52.52429
+          ],
+          [
+            13.41897,
+            52.52437
+          ],
+          [
+            13.41934,
+            52.52471
+          ],
+          [
+            13.419888,
+            52.525203
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6542741,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-12-12T14:16:57+00:00",
+        "train": {
+          "trip": 6349254,
+          "hafasId": "20251212_15:14_de-VBB_281082104",
+          "category": "tram",
+          "mode": "TRAM",
+          "number": "M4",
+          "lineName": "M4",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 770,
+          "points": 3,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168972577,
+            "name": "S+U Alexanderplatz Bhf/Gontardstr. (Berlin)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-12-12T14:18:00+00:00",
+            "arrivalPlanned": "2025-12-12T14:18:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-12T14:18:00+00:00",
+            "departurePlanned": "2025-12-12T14:18:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 11332,
+            "name": "Mollstr./Otto-Braun-Str., Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 732567,
+            "arrival": "2025-12-12T14:23:00+00:00",
+            "arrivalPlanned": "2025-12-12T14:23:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-12-12T14:23:00+00:00",
+            "departurePlanned": "2025-12-12T14:23:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 694,
+            "identifier": null,
+            "name": "Berliner Verkehrsbetriebe"
+          },
+          "dataSource": {
+            "id": "9ea6b4f6-fadd-4556-b8c0-f4e1996d9ef8",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von VBB unter der Lizenz Creative Commons Attribution 4.0 International (CC BY 4.0) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.41132,
+                      52.52105
+                    ],
+                    [
+                      13.41175,
+                      52.52079
+                    ],
+                    [
+                      13.41188,
+                      52.52075
+                    ],
+                    [
+                      13.412,
+                      52.52074
+                    ],
+                    [
+                      13.41208,
+                      52.52075
+                    ],
+                    [
+                      13.41298,
+                      52.52117
+                    ],
+                    [
+                      13.414,
+                      52.52168
+                    ],
+                    [
+                      13.4143,
+                      52.52188
+                    ],
+                    [
+                      13.41499,
+                      52.52237
+                    ],
+                    [
+                      13.41747,
+                      52.52435
+                    ],
+                    [
+                      13.41764,
+                      52.52442
+                    ],
+                    [
+                      13.41785,
+                      52.52443
+                    ],
+                    [
+                      13.41798,
+                      52.5244
+                    ],
+                    [
+                      13.41826,
+                      52.52429
+                    ],
+                    [
+                      13.41844,
+                      52.52424
+                    ],
+                    [
+                      13.41867,
+                      52.52424
+                    ],
+                    [
+                      13.41884,
+                      52.52429
+                    ],
+                    [
+                      13.41897,
+                      52.52437
+                    ],
+                    [
+                      13.41934,
+                      52.52471
+                    ],
+                    [
+                      13.419888,
+                      52.525203
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6542741
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2472066,
+          "displayName": "Adri",
+          "username": "Adriii666",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2472066_1764422222.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#2FC5CC",
+        "category": "tram"
+      }
+    }
+  ]
+}

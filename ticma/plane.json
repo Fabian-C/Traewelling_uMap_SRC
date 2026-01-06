@@ -1,0 +1,493 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.649166,
+            55.629444
+          ],
+          [
+            10.00672,
+            53.63271
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6392920,
+        "body": "ATR 72 \u2708\ufe0f by Braathens\ndas Arcticadventure neigt sich dem Ende \u2744\ufe0f\u2728\ud83c\udf0c",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 16,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-22T19:02:55+00:00",
+        "train": {
+          "trip": 6201259,
+          "hafasId": "5da2e454-d9a3-4c7a-8aa9-7679e4f80926",
+          "category": "plane",
+          "mode": null,
+          "number": "SK647",
+          "lineName": "SK647",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 279954,
+          "points": 0,
+          "duration": 51,
+          "manualDeparture": "2025-11-22T20:38:00+00:00",
+          "manualArrival": "2025-11-22T21:29:00+00:00",
+          "origin": {
+            "id": 168734187,
+            "name": "CPH Lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-22T20:25:00+00:00",
+            "arrivalPlanned": "2025-11-22T20:25:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-22T20:25:00+00:00",
+            "departurePlanned": "2025-11-22T20:25:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 5983,
+            "name": "Hamburg Airport",
+            "rilIdentifier": "AAI",
+            "evaIdentifier": 8002547,
+            "arrival": "2025-11-22T21:25:00+00:00",
+            "arrivalPlanned": "2025-11-22T21:25:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-22T21:25:00+00:00",
+            "departurePlanned": "2025-11-22T21:25:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      12.649166,
+                      55.629444
+                    ],
+                    [
+                      10.00672,
+                      53.63271
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6392920
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 5524,
+          "displayName": "Tim-C. | Insta: tf_ticma",
+          "username": "ticma",
+          "profilePicture": "https://traewelling.de/uploads/avatars/5524_1735647448.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "plane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.906965,
+            69.67976
+          ],
+          [
+            12.649166,
+            55.629444
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6385404,
+        "body": "Airbus A320 \u2708\ufe0f\n2. Versuch nach \ud83c\udde9\ud83c\uddf0 zu kommen \ud83d\ude2c\u2744\ufe0f",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 20,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-21T18:52:01+00:00",
+        "train": {
+          "trip": 6194193,
+          "hafasId": "9008a079-6b9c-4daa-8115-bd3a5ea92faf",
+          "category": "plane",
+          "mode": null,
+          "number": "SK 4455",
+          "lineName": "SK 4455",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1594474,
+          "points": 0,
+          "duration": 132,
+          "manualDeparture": "2025-11-21T20:28:00+00:00",
+          "manualArrival": "2025-11-21T22:40:00+00:00",
+          "origin": {
+            "id": 168862696,
+            "name": "Troms\u00f8 lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-21T19:15:00+00:00",
+            "arrivalPlanned": "2025-11-21T19:15:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-21T19:15:00+00:00",
+            "departurePlanned": "2025-11-21T19:15:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168734187,
+            "name": "CPH Lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-21T21:55:00+00:00",
+            "arrivalPlanned": "2025-11-21T21:55:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-21T21:55:00+00:00",
+            "departurePlanned": "2025-11-21T21:55:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      18.906965,
+                      69.67976
+                    ],
+                    [
+                      12.649166,
+                      55.629444
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6385404
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 5524,
+          "displayName": "Tim-C. | Insta: tf_ticma",
+          "username": "ticma",
+          "profilePicture": "https://traewelling.de/uploads/avatars/5524_1735647448.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "plane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.649166,
+            55.629444
+          ],
+          [
+            18.906965,
+            69.67976
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6342796,
+        "body": "Airbus A320 \u2708\ufe0f\n\ud83d\udd1c  \ud83c\uddf3\ud83c\uddf4\n4x Holding wegen Schneesturm \u2744\ufe0f",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 28,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-16T06:48:18+00:00",
+        "train": {
+          "trip": 6153248,
+          "hafasId": "65f414f6-07a3-4285-80bb-c110756b18cb",
+          "category": "plane",
+          "mode": null,
+          "number": "SK 4452",
+          "lineName": "SK 4452",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1594474,
+          "points": 0,
+          "duration": 177,
+          "manualDeparture": "2025-11-16T07:08:00+00:00",
+          "manualArrival": "2025-11-16T10:05:00+00:00",
+          "origin": {
+            "id": 168734187,
+            "name": "CPH Lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-16T07:05:00+00:00",
+            "arrivalPlanned": "2025-11-16T07:05:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-16T07:05:00+00:00",
+            "departurePlanned": "2025-11-16T07:05:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168862696,
+            "name": "Troms\u00f8 lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-16T09:45:00+00:00",
+            "arrivalPlanned": "2025-11-16T09:45:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-16T09:45:00+00:00",
+            "departurePlanned": "2025-11-16T09:45:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      12.649166,
+                      55.629444
+                    ],
+                    [
+                      18.906965,
+                      69.67976
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6342796
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 5524,
+          "displayName": "Tim-C. | Insta: tf_ticma",
+          "username": "ticma",
+          "profilePicture": "https://traewelling.de/uploads/avatars/5524_1735647448.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "plane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.00672,
+            53.63271
+          ],
+          [
+            12.649166,
+            55.629444
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6342624,
+        "body": "ATR 72 \u2708\ufe0f\nflybra.se",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 25,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-16T04:58:22+00:00",
+        "train": {
+          "trip": 6153087,
+          "hafasId": "9fe9d04a-86b0-4fd5-8333-acf926a6d4e9",
+          "category": "plane",
+          "mode": null,
+          "number": "SK 648",
+          "lineName": "SK 648",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 279954,
+          "points": 0,
+          "duration": 57,
+          "manualDeparture": "2025-11-16T05:12:00+00:00",
+          "manualArrival": "2025-11-16T06:09:00+00:00",
+          "origin": {
+            "id": 5983,
+            "name": "Hamburg Airport",
+            "rilIdentifier": "AAI",
+            "evaIdentifier": 8002547,
+            "arrival": "2025-11-16T05:15:00+00:00",
+            "arrivalPlanned": "2025-11-16T05:15:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-16T05:15:00+00:00",
+            "departurePlanned": "2025-11-16T05:15:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168734187,
+            "name": "CPH Lufthavn",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-16T06:15:00+00:00",
+            "arrivalPlanned": "2025-11-16T06:15:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-16T06:15:00+00:00",
+            "departurePlanned": "2025-11-16T06:15:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      10.00672,
+                      53.63271
+                    ],
+                    [
+                      12.649166,
+                      55.629444
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6342624
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 5524,
+          "displayName": "Tim-C. | Insta: tf_ticma",
+          "username": "ticma",
+          "profilePicture": "https://traewelling.de/uploads/avatars/5524_1735647448.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "plane"
+      }
+    }
+  ]
+}

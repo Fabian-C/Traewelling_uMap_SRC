@@ -1,1 +1,142 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"LineString","coordinates":[[13.73144,51.03962],[14.44005,50.08935],[14.43429,50.08316]]},"properties":{"id":6245782,"statusId":6245782,"createdAt":"2025-11-03T09:20:18+00:00","train":{"category":"bus","lineName":"FlixBus 060","number":"FlixBus 060","origin":{"name":"Dresden central station (Bayrische Stra\u00dfe)","departure":"2025-11-03T08:53:00+00:00"},"destination":{"name":"Prague (Main Railway Station - Parking)","arrival":"2025-11-03T10:59:00+00:00"},"duration":126,"distance":117852,"operator":{"name":"FlixBus-eu"}},"realistic":true}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.731438,
+            51.039616
+          ],
+          [
+            14.44005,
+            50.089348
+          ],
+          [
+            14.434291,
+            50.083157
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6245782,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 2,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2025-11-03T09:20:18+00:00",
+        "train": {
+          "trip": 6059484,
+          "hafasId": "20251103_06:00_eu-flixbus_060-72-0600112025-B#ZAG-00",
+          "category": "bus",
+          "mode": null,
+          "number": "FlixBus 060",
+          "lineName": "FlixBus 060",
+          "routeColor": "73d700",
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 117852,
+          "points": 14,
+          "duration": 126,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 168894078,
+            "name": "Dresden central station (Bayrische Stra\u00dfe)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-03T08:41:00+00:00",
+            "arrivalPlanned": "2025-11-03T08:40:00+00:00",
+            "arrivalReal": "2025-11-03T08:41:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-03T08:53:00+00:00",
+            "departurePlanned": "2025-11-03T08:50:00+00:00",
+            "departureReal": "2025-11-03T08:53:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": true,
+            "isDepartureDelayed": true,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 168767642,
+            "name": "Prague (Main Railway Station - Parking)",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2025-11-03T10:59:00+00:00",
+            "arrivalPlanned": "2025-11-03T11:00:00+00:00",
+            "arrivalReal": "2025-11-03T10:59:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2025-11-03T11:04:00+00:00",
+            "departurePlanned": "2025-11-03T11:05:00+00:00",
+            "departureReal": "2025-11-03T11:04:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": {
+            "id": 4101,
+            "identifier": null,
+            "name": "FlixBus-eu"
+          },
+          "dataSource": {
+            "id": "9ea6b4f7-4727-4a5c-9d0c-c05f0b4c3f48",
+            "attribution": "Die Daten werden von transitous bereitgestellt und sind von FlixMobility Tech GmbH unter der Lizenz Open Database License (ODbL) lizenziert."
+          },
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.731438,
+                      51.039616
+                    ],
+                    [
+                      14.44005,
+                      50.089348
+                    ],
+                    [
+                      14.434291,
+                      50.083157
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 6245782
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 2471851,
+          "displayName": "Pup Resu",
+          "username": "Resu",
+          "profilePicture": "https://traewelling.de/uploads/avatars/2471851_1761902960.png",
+          "mastodonUrl": null,
+          "preventIndex": false
+        },
+        "tags": [],
+        "color": "#238443",
+        "category": "bus"
+      }
+    }
+  ]
+}

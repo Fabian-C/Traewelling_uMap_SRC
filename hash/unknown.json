@@ -1,1 +1,1033 @@
-{"type":"FeatureCollection","features":[]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.93627,
+            51.50982
+          ],
+          [
+            6.94133,
+            51.51107
+          ],
+          [
+            6.94883,
+            51.51299
+          ],
+          [
+            6.9517,
+            51.5141
+          ],
+          [
+            6.95243,
+            51.51743
+          ],
+          [
+            6.95844,
+            51.5182
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3574299,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 12,
+        "liked": false,
+        "isLikable": false,
+        "client": {
+          "id": 71,
+          "name": "Lokbuch",
+          "privacyPolicyUrl": "https://marhei.eu/lokbuch/privacy"
+        },
+        "createdAt": "2024-10-12T19:33:11+00:00",
+        "train": {
+          "trip": 3460373,
+          "hafasId": "2|#VN#1#ST#1728503595#PI#0#ZI#1691955#TA#1#DA#121024#1S#653009#1T#2135#LS#651031#LT#2155#PU#80#RT#1#CA#ast#ZE#TB294#ZB#ASTTB294#PC#9#FR#653009#FT#2135#TO#651031#TT#2155#",
+          "category": "taxi",
+          "mode": null,
+          "number": "9-vrr040-tb294",
+          "lineName": "ASTTB294",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1972,
+          "points": 2,
+          "duration": 4,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 105240,
+            "name": "Hauptbahnhof, Bottrop",
+            "rilIdentifier": null,
+            "evaIdentifier": 653009,
+            "arrival": "2024-10-12T19:35:00+00:00",
+            "arrivalPlanned": "2024-10-12T19:35:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-10-12T19:35:00+00:00",
+            "departurePlanned": "2024-10-12T19:35:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 88002,
+            "name": "Malakoffturm, Bottrop",
+            "rilIdentifier": null,
+            "evaIdentifier": 651018,
+            "arrival": "2024-10-12T19:39:00+00:00",
+            "arrivalPlanned": "2024-10-12T19:39:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-10-12T19:39:00+00:00",
+            "departurePlanned": "2024-10-12T19:39:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      6.93627,
+                      51.50982
+                    ],
+                    [
+                      6.94133,
+                      51.51107
+                    ],
+                    [
+                      6.94883,
+                      51.51299
+                    ],
+                    [
+                      6.9517,
+                      51.5141
+                    ],
+                    [
+                      6.95243,
+                      51.51743
+                    ],
+                    [
+                      6.95844,
+                      51.5182
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 3574299
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9698,
+            53.54527
+          ],
+          [
+            9.95224,
+            53.54395
+          ],
+          [
+            9.93582,
+            53.5431
+          ]
+        ]
+      },
+      "properties": {
+        "id": 2590400,
+        "body": "Mit @pajay44",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 15,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2024-05-11T19:15:00+00:00",
+        "train": {
+          "trip": 2559177,
+          "hafasId": "1|453198|5|80|11052024",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-hvvhad-62",
+          "lineName": "F\u00e4h 62",
+          "routeColor": null,
+          "journeyNumber": 23,
+          "manualJourneyNumber": null,
+          "distance": 2261,
+          "points": 4,
+          "duration": 7,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 8410,
+            "name": "Hamburg Landungsbr\u00fccken",
+            "rilIdentifier": "ALAS",
+            "evaIdentifier": 8003518,
+            "arrival": "2024-05-11T19:15:00+00:00",
+            "arrivalPlanned": "2024-05-11T19:15:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-05-11T19:15:00+00:00",
+            "departurePlanned": "2024-05-11T19:15:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 40462,
+            "name": "Dockland (Fischereihafen), Hamburg",
+            "rilIdentifier": null,
+            "evaIdentifier": 895611,
+            "arrival": "2024-05-11T19:22:00+00:00",
+            "arrivalPlanned": "2024-05-11T19:22:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-05-11T19:22:00+00:00",
+            "departurePlanned": "2024-05-11T19:22:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      9.9698,
+                      53.54527
+                    ],
+                    [
+                      9.95224,
+                      53.54395
+                    ],
+                    [
+                      9.93582,
+                      53.5431
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 2590400
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.71782,
+            50.15012
+          ],
+          [
+            7.7182,
+            50.15327
+          ]
+        ]
+      },
+      "properties": {
+        "id": 984969,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 12,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2023-05-04T16:12:28+00:00",
+        "train": {
+          "trip": 1023965,
+          "hafasId": "1|1262247|14|80|4052023",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-vrm072-f50",
+          "lineName": "F\u00e4hre",
+          "routeColor": null,
+          "journeyNumber": 19703,
+          "manualJourneyNumber": null,
+          "distance": 352,
+          "points": 4,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 126922,
+            "name": "Rheinf\u00e4hre, St. Goar",
+            "rilIdentifier": null,
+            "evaIdentifier": 114891,
+            "arrival": "2023-05-04T16:10:00+00:00",
+            "arrivalPlanned": "2023-05-04T16:10:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2023-05-04T16:10:00+00:00",
+            "departurePlanned": "2023-05-04T16:10:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 11372,
+            "name": "Rheinf\u00e4hre, St. Goarshausen",
+            "rilIdentifier": null,
+            "evaIdentifier": 455490,
+            "arrival": "2023-05-04T16:15:00+00:00",
+            "arrivalPlanned": "2023-05-04T16:15:00+00:00",
+            "arrivalReal": "2023-05-04T16:15:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2023-05-04T16:13:09+00:00",
+            "departurePlanned": "2023-05-04T16:15:00+00:00",
+            "departureReal": "2023-05-04T16:13:09+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      7.71782,
+                      50.15012
+                    ],
+                    [
+                      7.7182,
+                      50.15327
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 984969
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.68336,
+            52.42893
+          ],
+          [
+            13.67604,
+            52.43295
+          ],
+          [
+            13.68109,
+            52.43669
+          ]
+        ]
+      },
+      "properties": {
+        "id": 527348,
+        "body": "F\u00e4hre fahren mit @ichbinole_ und @herrnotok",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 7,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2022-09-24T12:40:14+00:00",
+        "train": {
+          "trip": 559063,
+          "hafasId": "1|1065749|4|80|24092022",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-vbbbvf-f23",
+          "lineName": "F\u00e4h F23",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1208,
+          "points": 4,
+          "duration": 15,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 176538,
+            "name": "Neu Helgoland, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 733501,
+            "arrival": "2022-09-24T12:35:00+00:00",
+            "arrivalPlanned": "2022-09-24T12:35:00+00:00",
+            "arrivalReal": "2022-09-24T12:35:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-09-24T12:35:00+00:00",
+            "departurePlanned": "2022-09-24T12:35:00+00:00",
+            "departureReal": "2022-09-24T12:35:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 12303,
+            "name": "M\u00fcggelwerderweg, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 733488,
+            "arrival": "2022-09-24T12:50:00+00:00",
+            "arrivalPlanned": "2022-09-24T12:50:00+00:00",
+            "arrivalReal": "2022-09-24T12:50:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-09-24T12:50:00+00:00",
+            "departurePlanned": null,
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.68336,
+                      52.42893
+                    ],
+                    [
+                      13.67604,
+                      52.43295
+                    ],
+                    [
+                      13.68109,
+                      52.43669
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 527348
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.68889,
+            52.43013
+          ],
+          [
+            13.68904,
+            52.42957
+          ]
+        ]
+      },
+      "properties": {
+        "id": 527305,
+        "body": "Ruderboot F\u00e4hre mit @notok und @IchBinOle",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 9,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2022-09-24T12:03:38+00:00",
+        "train": {
+          "trip": 559022,
+          "hafasId": "1|1067358|3|80|24092022",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-vbbbvf-f24",
+          "lineName": "F\u00e4h F24",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 63,
+          "points": 4,
+          "duration": 5,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 12304,
+            "name": "Kruggasse, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 733489,
+            "arrival": "2022-09-24T12:05:00+00:00",
+            "arrivalPlanned": null,
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-09-24T12:05:00+00:00",
+            "departurePlanned": "2022-09-24T12:05:00+00:00",
+            "departureReal": "2022-09-24T12:05:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 12306,
+            "name": "Spreewiesen, Berlin",
+            "rilIdentifier": null,
+            "evaIdentifier": 733502,
+            "arrival": "2022-09-24T12:10:00+00:00",
+            "arrivalPlanned": "2022-09-24T12:10:00+00:00",
+            "arrivalReal": "2022-09-24T12:10:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-09-24T12:10:00+00:00",
+            "departurePlanned": null,
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.68889,
+                      52.43013
+                    ],
+                    [
+                      13.68904,
+                      52.42957
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 527305
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9698,
+            53.54527
+          ],
+          [
+            9.95223,
+            53.54394
+          ]
+        ]
+      },
+      "properties": {
+        "id": 351387,
+        "body": "Hamburg ohne F\u00e4hre ist wie K\u00f6ln Hbf ohne Versp\u00e4tung.... Nicht vorstellbar!",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2022-05-14T13:25:55+00:00",
+        "train": {
+          "trip": 383633,
+          "hafasId": "1|355297|22|80|14052022",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-hvvhad-62",
+          "lineName": "F\u00e4h 62",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 1172,
+          "points": 4,
+          "duration": 6,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 8410,
+            "name": "Hamburg Landungsbr\u00fccken",
+            "rilIdentifier": "ALAS",
+            "evaIdentifier": 8003518,
+            "arrival": "2022-05-14T13:25:00+00:00",
+            "arrivalPlanned": null,
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-05-14T13:25:00+00:00",
+            "departurePlanned": "2022-05-14T13:25:00+00:00",
+            "departureReal": "2022-05-14T13:25:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 10862,
+            "name": "Altona (Fischmarkt), Hamburg",
+            "rilIdentifier": null,
+            "evaIdentifier": 692685,
+            "arrival": "2022-05-14T13:31:00+00:00",
+            "arrivalPlanned": "2022-05-14T13:31:00+00:00",
+            "arrivalReal": "2022-05-14T13:31:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-05-14T13:31:00+00:00",
+            "departurePlanned": "2022-05-14T13:31:00+00:00",
+            "departureReal": "2022-05-14T13:31:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      9.9698,
+                      53.54527
+                    ],
+                    [
+                      9.95223,
+                      53.54394
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 351387
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.93581,
+            53.54308
+          ]
+        ]
+      },
+      "properties": {
+        "id": 325396,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 2,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2022-04-16T17:09:48+00:00",
+        "train": {
+          "trip": 357063,
+          "hafasId": "1|351626|33|80|16042022",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-hvvhad-62",
+          "lineName": "F\u00e4h 62",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 2366,
+          "points": 4,
+          "duration": 12,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 40462,
+            "name": "Dockland (Fischereihafen), Hamburg",
+            "rilIdentifier": null,
+            "evaIdentifier": 895611,
+            "arrival": "2022-04-16T17:10:00+00:00",
+            "arrivalPlanned": "2022-04-16T17:10:00+00:00",
+            "arrivalReal": "2022-04-16T17:10:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-04-16T17:10:00+00:00",
+            "departurePlanned": "2022-04-16T17:10:00+00:00",
+            "departureReal": "2022-04-16T17:10:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 8410,
+            "name": "Hamburg Landungsbr\u00fccken",
+            "rilIdentifier": "ALAS",
+            "evaIdentifier": 8003518,
+            "arrival": "2022-04-16T17:22:00+00:00",
+            "arrivalPlanned": "2022-04-16T17:22:00+00:00",
+            "arrivalReal": "2022-04-16T17:22:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-04-16T17:22:00+00:00",
+            "departurePlanned": null,
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      9.93581,
+                      53.54308
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 325396
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9698,
+            53.54527
+          ],
+          [
+            9.95223,
+            53.54394
+          ],
+          [
+            9.93581,
+            53.54308
+          ]
+        ]
+      },
+      "properties": {
+        "id": 325374,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 2,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2022-04-16T16:49:46+00:00",
+        "train": {
+          "trip": 357033,
+          "hafasId": "1|348355|35|80|16042022",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-hvvhad-62",
+          "lineName": "F\u00e4h 62",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 2262,
+          "points": 4,
+          "duration": 11,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 8410,
+            "name": "Hamburg Landungsbr\u00fccken",
+            "rilIdentifier": "ALAS",
+            "evaIdentifier": 8003518,
+            "arrival": "2022-04-16T16:40:00+00:00",
+            "arrivalPlanned": null,
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-04-16T16:40:00+00:00",
+            "departurePlanned": "2022-04-16T16:40:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 40462,
+            "name": "Dockland (Fischereihafen), Hamburg",
+            "rilIdentifier": null,
+            "evaIdentifier": 895611,
+            "arrival": "2022-04-16T16:51:00+00:00",
+            "arrivalPlanned": "2022-04-16T16:51:00+00:00",
+            "arrivalReal": "2022-04-16T16:51:00+00:00",
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2022-04-16T16:51:00+00:00",
+            "departurePlanned": "2022-04-16T16:51:00+00:00",
+            "departureReal": "2022-04-16T16:51:00+00:00",
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      9.9698,
+                      53.54527
+                    ],
+                    [
+                      9.95223,
+                      53.54394
+                    ],
+                    [
+                      9.93581,
+                      53.54308
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 325374
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 11102,
+          "displayName": "Fabi",
+          "username": "Hash",
+          "profilePicture": "https://traewelling.de/uploads/avatars/11102_1673629089.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    }
+  ]
+}
