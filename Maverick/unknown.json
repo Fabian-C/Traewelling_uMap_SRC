@@ -1,0 +1,245 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.434558,
+            52.510972
+          ],
+          [
+            13.513196,
+            52.391677
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3593878,
+        "body": "Heimweg mittels Taxi-Gutschein, da Verbindung mit \u00d6ffis nicht mehr vorhanden bzw. zumutbar.\n\nFeierabend! \ud83e\udd73",
+        "bodyMentions": [],
+        "business": 2,
+        "visibility": 0,
+        "likes": 2,
+        "liked": false,
+        "isLikable": false,
+        "client": null,
+        "createdAt": "2024-10-16T00:18:55+00:00",
+        "train": {
+          "trip": 3478909,
+          "hafasId": "20834bf7-4707-48a6-879b-776b16113e2f",
+          "category": "taxi",
+          "mode": null,
+          "number": "TAXI",
+          "lineName": "TAXI",
+          "routeColor": null,
+          "journeyNumber": null,
+          "manualJourneyNumber": null,
+          "distance": 14311,
+          "points": 0,
+          "duration": 27,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 1091,
+            "name": "Berlin Ostbahnhof",
+            "rilIdentifier": null,
+            "evaIdentifier": null,
+            "arrival": "2024-10-16T00:00:00+00:00",
+            "arrivalPlanned": "2024-10-16T00:00:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-10-16T00:00:00+00:00",
+            "departurePlanned": "2024-10-16T00:00:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 5360,
+            "name": "Sch\u00f6nefeld(bei Berlin)",
+            "rilIdentifier": "BFHS",
+            "evaIdentifier": 8010109,
+            "arrival": "2024-10-16T00:27:00+00:00",
+            "arrivalPlanned": "2024-10-16T00:27:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-10-16T00:27:00+00:00",
+            "departurePlanned": "2024-10-16T00:27:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      13.434558,
+                      52.510972
+                    ],
+                    [
+                      13.513196,
+                      52.391677
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 3593878
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 28192,
+          "displayName": "Marcel \u2022 Maverick",
+          "username": "Maverick",
+          "profilePicture": "https://traewelling.de/uploads/avatars/28192_1726722806.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.93582,
+            53.5431
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3487967,
+        "body": "",
+        "bodyMentions": [],
+        "business": 0,
+        "visibility": 0,
+        "likes": 1,
+        "liked": false,
+        "isLikable": false,
+        "client": {
+          "id": 71,
+          "name": "Lokbuch",
+          "privacyPolicyUrl": "https://marhei.eu/lokbuch/privacy"
+        },
+        "createdAt": "2024-09-29T15:13:06+00:00",
+        "train": {
+          "trip": 3379991,
+          "hafasId": "2|#VN#1#ST#1727296536#PI#0#ZI#519550#TA#11#DA#290924#1S#693434#1T#1320#LS#692681#LT#1352#PU#80#RT#1#CA#fae#ZE#62#ZB#F\u00e4h   62#PC#6#FR#693434#FT#1320#TO#692681#TT#1352#",
+          "category": "ferry",
+          "mode": null,
+          "number": "6-hvvhad-62",
+          "lineName": "F\u00e4h 62",
+          "routeColor": null,
+          "journeyNumber": 46,
+          "manualJourneyNumber": null,
+          "distance": 2365,
+          "points": 1,
+          "duration": 12,
+          "manualDeparture": null,
+          "manualArrival": null,
+          "origin": {
+            "id": 40462,
+            "name": "Dockland (Fischereihafen), Hamburg",
+            "rilIdentifier": null,
+            "evaIdentifier": 895611,
+            "arrival": "2024-09-29T11:39:00+00:00",
+            "arrivalPlanned": "2024-09-29T11:39:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-09-29T11:40:00+00:00",
+            "departurePlanned": "2024-09-29T11:40:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "destination": {
+            "id": 8410,
+            "name": "Hamburg Landungsbr\u00fccken",
+            "rilIdentifier": "ALAS",
+            "evaIdentifier": 8003518,
+            "arrival": "2024-09-29T11:52:00+00:00",
+            "arrivalPlanned": "2024-09-29T11:52:00+00:00",
+            "arrivalReal": null,
+            "arrivalPlatformPlanned": null,
+            "arrivalPlatformReal": null,
+            "departure": "2024-09-29T11:52:00+00:00",
+            "departurePlanned": "2024-09-29T11:52:00+00:00",
+            "departureReal": null,
+            "departurePlatformPlanned": null,
+            "departurePlatformReal": null,
+            "platform": null,
+            "isArrivalDelayed": false,
+            "isDepartureDelayed": false,
+            "cancelled": false
+          },
+          "operator": null,
+          "dataSource": null,
+          "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      9.93582,
+                      53.5431
+                    ]
+                  ]
+                },
+                "properties": {
+                  "statusId": 3487967
+                }
+              }
+            ]
+          }
+        },
+        "event": null,
+        "userDetails": {
+          "id": 28192,
+          "displayName": "Marcel \u2022 Maverick",
+          "username": "Maverick",
+          "profilePicture": "https://traewelling.de/uploads/avatars/28192_1726722806.png",
+          "mastodonUrl": null,
+          "preventIndex": true
+        },
+        "tags": [],
+        "color": "#666666",
+        "category": "unknown"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nationalExpress": 163,
+  "national": 15,
+  "regionalExp": 6,
+  "regional": 141,
+  "suburban": 347,
+  "bus": 63,
+  "tram": 26,
+  "subway": 743,
+  "plane": 0,
+  "ship": 0,
+  "unknown": 2
+}
