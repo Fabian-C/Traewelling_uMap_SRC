@@ -13,7 +13,7 @@
             --bg-primary: #0f0f0f; --bg-secondary: #1a1a1a; --bg-tertiary: #252525;
             --text-primary: #ffffff; --text-secondary: #b0b0b0; --text-muted: #808080;
             --border-color: #333333; --hover-bg: #2a2a2a; --menu-bg: rgba(26, 26, 26, 0.95);
-            --popup-bg: rgba(30, 30, 30, 0.95);
+            --popup-bg: rgba(30, 30, 30, 0.95); --shadow: rgba(0, 0, 0, 0.3);
             --accent-color: #667eea; --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -189,11 +189,6 @@
         .route-popup .mapboxgl-popup-content { padding: 10px; max-width: 280px; font-size: 12px; background: var(--popup-bg);
             color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; backdrop-filter: blur(10px); }
         .route-popup .popup-link { color: #4fc3f7; text-decoration: none; }
-        .heatmap-notice { padding: 10px 16px; font-size: 12px; color: #ffb347; display: none; }
-        .heatmap-notice.visible { display: block; }
-        .offline-banner { position: fixed; top: 0; left: 0; right: 0; background: #fa8231; color: #0f0f0f; text-align: center;
-            padding: 8px 12px; font-size: 13px; z-index: 12000; display: none; }
-        .offline-banner.hidden { display: none; }
         @media (max-width: 768px) {
             .setup-container { padding: 30px 20px; }
             .setup-header h1 { font-size: 24px; }
@@ -220,7 +215,6 @@
     </style>
 </head>
 <body>
-    <div id="offlineBanner" class="offline-banner hidden">Unable to load the interactive map. Check your connection and reload.</div>
     <!-- Setup Screen -->
     <div class="setup-screen" id="setupScreen">
         <div class="setup-container">
@@ -335,6 +329,7 @@
                             <div id="savedAccountsList">
                                 <p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>
                             </div>
+                            <button class="btn-secondary" onclick="clearAllSessions()" style="margin-top: 8px; font-size: 12px;">Clear All Sessions</button>
                         </div>
                     </details>
                     
@@ -383,7 +378,6 @@
                         <div class="slider-label">Intensity: <span id="intensityValue">3</span></div>
                         <input type="range" class="slider" id="intensitySlider" min="1" max="5" value="3">
                     </div>
-                    <div class="heatmap-notice" id="heatmapNotice">Heatmap & animations require WebGL support.</div>
                     <div style="padding: 10px 16px; font-size: 11px; border-top: 1px solid var(--border-color); margin-top: 10px;">
                         <div style="margin-bottom: 5px; font-weight: 600;">Density Legend:</div>
                         <div style="display: flex; align-items: center; margin-bottom: 3px;">
@@ -611,6 +605,111 @@
     };
 
     // =========================================================================
+    // INDEXEDDB FOR SESSION STORAGE
+    // =========================================================================
+    const IndexedDBStorage = {
+        db: null,
+        dbName: 'TraewellingMapDB',
+        storeName: 'sessions',
+        version: 1,
+        
+        async init() {
+            return new Promise((resolve, reject) => {
+                if (this.db) {
+                    resolve(this.db);
+                    return;
+                }
+                
+                const request = indexedDB.open(this.dbName, this.version);
+                
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => {
+                    this.db = request.result;
+                    resolve(this.db);
+                };
+                
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(this.storeName)) {
+                        const store = db.createObjectStore(this.storeName, { keyPath: 'username' });
+                        store.createIndex('timestamp', 'timestamp', { unique: false });
+                    }
+                };
+            });
+        },
+        
+        async saveSession(session) {
+            await this.init();
+            const tx = this.db.transaction([this.storeName], 'readwrite');
+            const store = tx.objectStore(this.storeName);
+            
+            // Compress session data to save space
+            const compressed = {
+                username: session.username,
+                displayName: session.displayName,
+                avatar: session.avatar,
+                timestamp: session.timestamp || Date.now(),
+                tripCount: session.tripCount || 0,
+                token: session.token || null
+            };
+            
+            store.put(compressed);
+            
+            // Clean old sessions (keep only 20 most recent)
+            const allRequest = store.getAll();
+            allRequest.onsuccess = () => {
+                const sessions = allRequest.result;
+                if (sessions.length > 20) {
+                    sessions.sort((a, b) => b.timestamp - a.timestamp);
+                    const toDelete = sessions.slice(20);
+                    toDelete.forEach(s => store.delete(s.username));
+                }
+            };
+            
+            return new Promise((resolve, reject) => {
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        },
+        
+        async getSessions() {
+            await this.init();
+            const tx = this.db.transaction([this.storeName], 'readonly');
+            const store = tx.objectStore(this.storeName);
+            const request = store.getAll();
+            
+            return new Promise((resolve, reject) => {
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        },
+        
+        async deleteSession(username) {
+            await this.init();
+            const tx = this.db.transaction([this.storeName], 'readwrite');
+            const store = tx.objectStore(this.storeName);
+            store.delete(username);
+            
+            return new Promise((resolve, reject) => {
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        },
+        
+        async clearAll() {
+            await this.init();
+            const tx = this.db.transaction([this.storeName], 'readwrite');
+            const store = tx.objectStore(this.storeName);
+            store.clear();
+            
+            return new Promise((resolve, reject) => {
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        }
+    };
+
+    // =========================================================================
     // RATE-LIMITED API CLIENT
     // =========================================================================
     class TraewellingAPI {
@@ -725,7 +824,7 @@
             }
 
             state.fetchedTrips = allStatuses;
-            saveSession(username, allStatuses, state.token);
+            saveCurrentSession();
             UI.updateFetchStats({ status: 'Processing data...' });
             await processAndDisplayData(allStatuses);
         } catch (error) {
@@ -823,129 +922,178 @@
     }
     
     // Save session with token and profile
-    async function saveSession(username, trips, token = null) {
+    async function saveCurrentSession() {
+        const session = {
+            username: state.username,
+            displayName: state.tokenOwner?.displayName,
+            avatar: state.tokenOwner?.avatar,
+            timestamp: Date.now(),
+            tripCount: state.fetchedTrips?.length || 0,
+            token: state.token || localStorage.getItem('tw_token')
+        };
+        
         try {
-            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-            const existingSession = sessions[username] || {};
+            await IndexedDBStorage.saveSession(session);
+        } catch (e) {
+            console.error('Failed to save session:', e);
+            // Fallback to localStorage with minimal data
+            try {
+                const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
+                sessions[session.username] = {
+                    username: session.username,
+                    displayName: session.displayName,
+                    avatar: session.avatar,
+                    timestamp: session.timestamp,
+                    tripCount: session.tripCount
+                };
+                localStorage.setItem('tw_sessions', JSON.stringify(sessions));
+            } catch (e2) {
+                console.error('Even localStorage failed:', e2);
+            }
+        }
+    }
+    
+    async function loadSavedSessions() {
+        const container = document.getElementById('savedSessions');
+        const list = document.getElementById('sessionsList');
+        
+        if (!container || !list) return;
+        
+        try {
+            const sessions = await IndexedDBStorage.getSessions();
             
-            // Fetch profile if we have a token
-            let profile = existingSession.profile || null;
-            if (token) {
-                const fetchedProfile = await fetchUserProfile(username, token);
-                if (fetchedProfile) profile = fetchedProfile;
+            if (sessions.length === 0) {
+                // Try fallback to localStorage
+                const fallbackSessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
+                const entries = Object.entries(fallbackSessions);
+                if (entries.length === 0) {
+                    container.style.display = 'none';
+                    return;
+                }
+                // Migrate to IndexedDB
+                for (const [username, session] of entries) {
+                    await IndexedDBStorage.saveSession(session);
+                }
+                localStorage.removeItem('tw_sessions');
+                loadSavedSessions(); // Reload from IndexedDB
+                return;
             }
             
-            sessions[username] = {
-                trips,
-                token: token || existingSession.token || null,
-                profile,
-                savedAt: new Date().toISOString(),
-                tripCount: trips.length
-            };
-            localStorage.setItem('tw_sessions', JSON.stringify(sessions));
-            loadSavedSessions();
-            updateMenuAccountList();
-        } catch (e) { console.warn('Save session failed:', e); }
-    }
-
-    function loadSavedSessions() {
-        try {
-            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-            const list = document.getElementById('sessionsList');
-            const container = document.getElementById('savedSessions');
-            if (!Object.keys(sessions).length) { container.style.display = 'none'; return; }
             container.style.display = 'block';
             list.innerHTML = '';
-            Object.entries(sessions).forEach(([username, data]) => {
+            
+            sessions.sort((a,b) => b.timestamp - a.timestamp);
+            sessions.forEach(session => {
                 const item = document.createElement('div');
                 item.className = 'session-item';
-                const avatarStyle = data.profile?.profilePicture 
-                    ? `background-image: url('${data.profile.profilePicture}'); background-size: cover;`
-                    : '';
-                const avatarContent = data.profile?.profilePicture ? '' : username[0].toUpperCase();
-                const displayName = data.profile?.displayName || username;
                 item.innerHTML = `
+                    <div class="session-avatar">${session.avatar ? `<img src="${session.avatar}">` : session.username[0].toUpperCase()}</div>
                     <div class="session-info">
-                        <div class="session-avatar" style="${avatarStyle}">${avatarContent}</div>
-                        <span>${displayName} (${data.tripCount} trips)</span>
+                        <div class="session-name">${session.displayName || session.username}</div>
+                        <div class="session-username">@${session.username}</div>
+                        <div class="session-trips">${session.tripCount || 0} trips</div>
                     </div>
-                    <button class="session-delete" onclick="event.stopPropagation();deleteSession('${username}')">✕</button>`;
-                item.onclick = () => loadSession(username);
+                    <button class="session-delete" onclick="deleteSession('${session.username}')">×</button>
+                `;
+                item.onclick = (e) => {
+                    if (!e.target.classList.contains('session-delete')) {
+                        loadSession(session);
+                    }
+                };
                 list.appendChild(item);
             });
-        } catch (e) { console.warn('Load sessions failed:', e); }
+        } catch (e) {
+            console.error('Failed to load sessions:', e);
+            container.style.display = 'none';
+        }
     }
-
-    function loadSession(username) {
-        try {
-            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-            const session = sessions[username];
-            if (!session) return alert('Session not found');
-            
-            // Restore state
-            state.username = username;
-            state.fetchedTrips = session.trips;
-            
-            // Restore token if available
-            if (session.token) {
-                state.token = session.token;
-                UI.syncTokenInputs(session.token);
-            }
-            
-            // Update UI with profile info
-            if (session.profile) {
-                UI.updateDatasetSummary(session.profile.displayName, username, session.tripCount, session.profile.profilePicture);
-            }
-            
-            UI.syncUsernameInput(username);
-            document.getElementById('setupScreen').classList.add('hidden');
-            document.getElementById('mainMenu').style.display = '';
-            processAndDisplayData(session.trips);
-            
-            // Update statistics after loading session
-            updateAllStatistics();
-        } catch (e) { alert('Failed to load session'); }
-    }
-
-    function deleteSession(username) {
-        const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-        delete sessions[username];
-        localStorage.setItem('tw_sessions', JSON.stringify(sessions));
-        loadSavedSessions();
+    
+    async function loadSession(session) {
+        state.username = session.username;
+        state.token = session.token || localStorage.getItem('tw_token');
+        state.tokenOwner = {
+            username: session.username,
+            displayName: session.displayName,
+            avatar: session.avatar,
+            validated: !!state.token
+        };
+        
+        document.getElementById('username').value = session.username;
+        if (state.token) {
+            document.getElementById('apiToken').value = state.token;
+        }
+        
+        UI.setTokenOwner(state.tokenOwner);
+        UI.syncTokenInputs(state.token);
+        UI.syncUsernameInput(session.username);
+        document.getElementById('setupScreen').classList.add('hidden');
+        document.getElementById('mainMenu').style.display = '';
+        processAndDisplayData(session.trips);
+        
+        // Update statistics after loading session
+        updateAllStatistics();
         updateMenuAccountList();
     }
     
+    async function deleteSession(username) {
+        try {
+            await IndexedDBStorage.deleteSession(username);
+            loadSavedSessions();
+            updateMenuAccountList();
+        } catch (e) {
+            console.error('Failed to delete session:', e);
+            // Try fallback to localStorage
+            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
+            delete sessions[username];
+            localStorage.setItem('tw_sessions', JSON.stringify(sessions));
+            loadSavedSessions();
+            updateMenuAccountList();
+        }
+    }
+    
+    async function clearAllSessions() {
+        if (confirm('Clear all saved sessions? This cannot be undone.')) {
+            try {
+                await IndexedDBStorage.clearAll();
+                localStorage.removeItem('tw_sessions');
+                loadSavedSessions();
+                updateMenuAccountList();
+            } catch (e) {
+                console.error('Failed to clear sessions:', e);
+            }
+        }
+    }
+    
     // Update account list in menu
-    function updateMenuAccountList() {
+    async function updateMenuAccountList() {
         const container = document.getElementById('savedAccountsList');
         if (!container) return;
         
         try {
-            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-            const sessionList = Object.entries(sessions);
+            const sessions = await IndexedDBStorage.getSessions();
             
-            if (!sessionList.length) {
+            if (!sessions.length) {
                 container.innerHTML = '<p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>';
                 return;
             }
             
-            container.innerHTML = sessionList.map(([username, data]) => {
-                const avatarStyle = data.profile?.profilePicture 
-                    ? `background-image: url('${data.profile.profilePicture}'); background-size: cover;`
+            container.innerHTML = sessions.map(session => {
+                const avatarStyle = session.avatar 
+                    ? `background-image: url('${session.avatar}'); background-size: cover;`
                     : '';
-                const avatarContent = data.profile?.profilePicture ? '' : username[0].toUpperCase();
-                const displayName = data.profile?.displayName || username;
-                const isActive = state.username === username ? 'active' : '';
-                const date = new Date(data.savedAt).toLocaleDateString();
+                const avatarContent = session.avatar ? '' : session.username[0].toUpperCase();
+                const displayName = session.displayName || session.username;
+                const isActive = state.username === session.username ? 'active' : '';
+                const date = new Date(session.timestamp).toLocaleDateString();
                 
                 return `
-                    <div class="saved-account-item ${isActive}" onclick="loadSession('${username}')">
+                    <div class="saved-account-item ${isActive}" onclick="loadSession(${JSON.stringify(session).replace(/'/g, "\\'")})">
                         <div class="saved-account-avatar" style="${avatarStyle}">${avatarContent}</div>
                         <div class="saved-account-info">
                             <div class="saved-account-name">${displayName}</div>
-                            <div class="saved-account-meta">@${username} · ${data.tripCount} trips · ${date}</div>
+                            <div class="saved-account-meta">@${session.username} · ${session.tripCount || 0} trips · ${date}</div>
                         </div>
-                        <button class="saved-account-delete" onclick="event.stopPropagation();deleteSession('${username}')">✕</button>
+                        <button class="saved-account-delete" onclick="event.stopPropagation();deleteSession('${session.username}')">✕</button>
                     </div>
                 `;
             }).join('');
