@@ -7,11 +7,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
-    <script src="https://unpkg.com/deck.gl@^9.0.0/dist.min.js"></script>
-    <script src="https://unpkg.com/@deck.gl/core@^9.0.0/dist.min.js"></script>
-    <script src="https://unpkg.com/@deck.gl/layers@^9.0.0/dist.min.js"></script>
-    <script src="https://unpkg.com/@deck.gl/geo-layers@^9.0.0/dist.min.js"></script>
-    <script src="https://unpkg.com/@deck.gl/mapbox@^9.0.0/dist.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@9.0.16/dist.min.js"></script>
     <style>
         :root {
             --bg-primary: #0f0f0f; --bg-secondary: #1a1a1a; --bg-tertiary: #252525;
@@ -982,15 +978,22 @@
 
         // Add layers with mobile compatibility
         const addRouteLayers = () => {
+            // Check if map style is loaded
+            if (!state.map.isStyleLoaded()) {
+                console.warn('Map style not loaded yet, waiting...');
+                setTimeout(addRouteLayers, 100);
+                return;
+            }
+            
             for (let i = 0; i < state.layers.order.length; i++) {
                 const layerId = state.layers.order[i];
                 const config = CONFIG.LAYER_CONFIG.find(([id]) => id === layerId);
                 if (!config) continue;
-                const [_, color] = config;
+                const color = config[1];
                 let data = categories[layerId] || { type: 'FeatureCollection', features: [] };
                 if (state.filters.hideInaccurate) data = filterInaccurateData(data, layerId);
 
-                // Remove existing layer if present
+                // Remove existing layer and source if they exist
                 if (state.map.getLayer(layerId)) {
                     try {
                         state.map.removeLayer(layerId);
@@ -1008,11 +1011,23 @@
 
                 try {
                     state.map.addSource(layerId, { type: 'geojson', data });
+                    
+                    // Find the reference layer (open-railway-map or previous layer)
+                    let beforeLayer = null;
+                    if (i > 0) {
+                        const prevLayerId = state.layers.order[i-1];
+                        if (state.map.getLayer(prevLayerId)) {
+                            beforeLayer = prevLayerId;
+                        }
+                    } else if (state.map.getLayer('open-railway-map')) {
+                        beforeLayer = 'open-railway-map';
+                    }
+                    
                     state.map.addLayer({
                         id: layerId, type: 'line', source: layerId,
                         layout: { 'line-join': 'round', 'line-cap': 'round', visibility: state.heatmap.enabled ? 'none' : 'visible' },
                         paint: { 'line-color': color, 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 3, 18, 16], 'line-opacity': 0.8 }
-                    }, i > 0 ? state.layers.order[i-1] : 'open-railway-map');
+                    }, beforeLayer);
 
                     state.layers.data.set(layerId, { data, color, visible: true });
                     updateStatistics(data, layerId);
