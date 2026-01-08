@@ -424,6 +424,7 @@
         token: null,
         username: null,
         tokenOwner: { username: null, displayName: null, avatar: null, profileUrl: null, validated: false },
+        queriedUserProfile: null, // Profile of the user being queried (may differ from token owner)
         fetchedTrips: [],
         filters: { fromDate: null, toDate: null, hideInaccurate: false },
         railway: { enabled: false },
@@ -605,107 +606,125 @@
     };
 
     // =========================================================================
-    // INDEXEDDB FOR SESSION STORAGE
+    // INDEXEDDB FOR SESSION STORAGE (Simplified & Robust)
     // =========================================================================
-    const IndexedDBStorage = {
-        db: null,
-        dbName: 'TraewellingMapDB',
-        storeName: 'sessions',
-        version: 1,
+    const SessionDB = {
+        DB_NAME: 'TraewellingMap',
+        STORE_NAME: 'sessions',
+        VERSION: 1,
+        MAX_SESSIONS: 15,
+        _db: null,
         
-        async init() {
+        // Open database connection
+        open() {
+            if (this._db) return Promise.resolve(this._db);
+            
             return new Promise((resolve, reject) => {
-                if (this.db) {
-                    resolve(this.db);
-                    return;
-                }
+                const req = indexedDB.open(this.DB_NAME, this.VERSION);
                 
-                const request = indexedDB.open(this.dbName, this.version);
-                
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => {
-                    this.db = request.result;
-                    resolve(this.db);
-                };
-                
-                request.onupgradeneeded = (e) => {
+                req.onupgradeneeded = (e) => {
                     const db = e.target.result;
-                    if (!db.objectStoreNames.contains(this.storeName)) {
-                        const store = db.createObjectStore(this.storeName, { keyPath: 'username' });
-                        store.createIndex('timestamp', 'timestamp', { unique: false });
+                    if (!db.objectStoreNames.contains(this.STORE_NAME)) {
+                        db.createObjectStore(this.STORE_NAME, { keyPath: 'username' });
                     }
                 };
+                
+                req.onsuccess = () => {
+                    this._db = req.result;
+                    resolve(this._db);
+                };
+                
+                req.onerror = () => reject(req.error);
             });
         },
         
-        async saveSession(session) {
-            await this.init();
-            const tx = this.db.transaction([this.storeName], 'readwrite');
-            const store = tx.objectStore(this.storeName);
-            
-            // Compress session data to save space
-            const compressed = {
-                username: session.username,
-                displayName: session.displayName,
-                avatar: session.avatar,
-                timestamp: session.timestamp || Date.now(),
-                tripCount: session.tripCount || 0,
-                token: session.token || null
-            };
-            
-            store.put(compressed);
-            
-            // Clean old sessions (keep only 20 most recent)
-            const allRequest = store.getAll();
-            allRequest.onsuccess = () => {
-                const sessions = allRequest.result;
-                if (sessions.length > 20) {
-                    sessions.sort((a, b) => b.timestamp - a.timestamp);
-                    const toDelete = sessions.slice(20);
-                    toDelete.forEach(s => store.delete(s.username));
+        // Save a session (including trip data)
+        async save(username, data) {
+            const db = await this.open();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction([this.STORE_NAME], 'readwrite');
+                const store = tx.objectStore(this.STORE_NAME);
+                
+                const session = {
+                    username: username,
+                    displayName: data.displayName || username,
+                    avatar: data.avatar || null,
+                    tripCount: data.tripCount || 0,
+                    token: data.token || null,
+                    trips: data.trips || null, // Store trip data for caching
+                    timestamp: Date.now()
+                };
+                
+                store.put(session);
+                tx.oncomplete = () => {
+                    this.prune(); // Clean old sessions
+                    resolve(session);
+                };
+                tx.onerror = () => reject(tx.error);
+            });
+        },
+        
+        // Get all sessions
+        async getAll() {
+            const db = await this.open();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction([this.STORE_NAME], 'readonly');
+                const req = tx.objectStore(this.STORE_NAME).getAll();
+                req.onsuccess = () => {
+                    const sessions = req.result || [];
+                    sessions.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+                    resolve(sessions);
+                };
+                req.onerror = () => reject(req.error);
+            });
+        },
+        
+        // Get single session
+        async get(username) {
+            const db = await this.open();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction([this.STORE_NAME], 'readonly');
+                const req = tx.objectStore(this.STORE_NAME).get(username);
+                req.onsuccess = () => resolve(req.result || null);
+                req.onerror = () => reject(req.error);
+            });
+        },
+        
+        // Delete a session
+        async delete(username) {
+            const db = await this.open();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction([this.STORE_NAME], 'readwrite');
+                tx.objectStore(this.STORE_NAME).delete(username);
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        },
+        
+        // Clear all sessions
+        async clear() {
+            const db = await this.open();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction([this.STORE_NAME], 'readwrite');
+                tx.objectStore(this.STORE_NAME).clear();
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        },
+        
+        // Remove old sessions beyond MAX_SESSIONS
+        async prune() {
+            try {
+                const sessions = await this.getAll();
+                if (sessions.length > this.MAX_SESSIONS) {
+                    const toDelete = sessions.slice(this.MAX_SESSIONS);
+                    for (const s of toDelete) {
+                        await this.delete(s.username);
+                    }
                 }
-            };
-            
-            return new Promise((resolve, reject) => {
-                tx.oncomplete = () => resolve();
-                tx.onerror = () => reject(tx.error);
-            });
-        },
-        
-        async getSessions() {
-            await this.init();
-            const tx = this.db.transaction([this.storeName], 'readonly');
-            const store = tx.objectStore(this.storeName);
-            const request = store.getAll();
-            
-            return new Promise((resolve, reject) => {
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        },
-        
-        async deleteSession(username) {
-            await this.init();
-            const tx = this.db.transaction([this.storeName], 'readwrite');
-            const store = tx.objectStore(this.storeName);
-            store.delete(username);
-            
-            return new Promise((resolve, reject) => {
-                tx.oncomplete = () => resolve();
-                tx.onerror = () => reject(tx.error);
-            });
-        },
-        
-        async clearAll() {
-            await this.init();
-            const tx = this.db.transaction([this.storeName], 'readwrite');
-            const store = tx.objectStore(this.storeName);
-            store.clear();
-            
-            return new Promise((resolve, reject) => {
-                tx.oncomplete = () => resolve();
-                tx.onerror = () => reject(tx.error);
-            });
+            } catch (e) {
+                console.warn('Session prune failed:', e);
+            }
         }
     };
 
@@ -754,6 +773,7 @@
 
         state.token = token; state.username = username; state.isFetching = true;
         state.cancelFetch = false; state.fetchedTrips = [];
+        state.queriedUserProfile = null; // Reset queried user profile
         UI.toggleSetup(false);
         UI.toggleFetch(true);
 
@@ -775,6 +795,20 @@
             } else {
                 UI.updateFetchStats({ status: 'Fetching public data...' });
                 UI.setTokenStatus('No token (public access)', 'idle');
+            }
+            
+            // Always fetch the QUERIED user's profile (not token owner)
+            UI.updateFetchStats({ status: 'Fetching user profile...' });
+            state.queriedUserProfile = await fetchUserProfile(username, token);
+            
+            // Update dataset info with queried user's profile
+            if (state.queriedUserProfile) {
+                UI.updateDatasetSummary(
+                    state.queriedUserProfile.displayName,
+                    state.queriedUserProfile.username,
+                    0, // Will be updated after fetching trips
+                    state.queriedUserProfile.avatar
+                );
             }
 
             let page = 1, hasMore = true;
@@ -901,18 +935,19 @@
     // SESSION MANAGEMENT
     // =========================================================================
     
-    // Fetch user profile from API
-    async function fetchUserProfile(username, token) {
+    // Fetch user profile from API (works with or without token)
+    async function fetchUserProfile(username, token = null) {
         try {
-            const response = await fetch(`${CONFIG.API_BASE_URL}/user/${username}`, {
-                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' }
-            });
+            const headers = { 'Accept': 'application/json' };
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+            
+            const response = await fetch(`${CONFIG.API_BASE_URL}/user/${username}`, { headers });
             if (!response.ok) return null;
             const data = await response.json();
             return {
                 username: data.data?.username || username,
                 displayName: data.data?.displayName || username,
-                profilePicture: data.data?.profilePicture || null,
+                avatar: data.data?.profilePicture || null,
                 profileUrl: `https://traewelling.de/@${username}`
             };
         } catch (e) {
@@ -921,183 +956,178 @@
         }
     }
     
-    // Save session with token and profile
+    // Save current session to IndexedDB (including trip data for caching)
+    // Uses the QUERIED user's profile, not the token owner
     async function saveCurrentSession() {
-        const session = {
-            username: state.username,
-            displayName: state.tokenOwner?.displayName,
-            avatar: state.tokenOwner?.avatar,
-            timestamp: Date.now(),
-            tripCount: state.fetchedTrips?.length || 0,
-            token: state.token || localStorage.getItem('tw_token')
-        };
+        if (!state.username) return;
         
         try {
-            await IndexedDBStorage.saveSession(session);
-        } catch (e) {
-            console.error('Failed to save session:', e);
-            // Fallback to localStorage with minimal data
-            try {
-                const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-                sessions[session.username] = {
-                    username: session.username,
-                    displayName: session.displayName,
-                    avatar: session.avatar,
-                    timestamp: session.timestamp,
-                    tripCount: session.tripCount
-                };
-                localStorage.setItem('tw_sessions', JSON.stringify(sessions));
-            } catch (e2) {
-                console.error('Even localStorage failed:', e2);
+            // Use queried user profile if available, otherwise fetch it
+            let profile = state.queriedUserProfile;
+            if (!profile) {
+                profile = await fetchUserProfile(state.username, state.token);
             }
+            
+            await SessionDB.save(state.username, {
+                displayName: profile?.displayName || state.username,
+                avatar: profile?.avatar || null,
+                tripCount: state.fetchedTrips?.length || 0,
+                token: state.token,
+                trips: state.fetchedTrips // Cache trip data
+            });
+            updateMenuAccountList();
+        } catch (e) {
+            console.warn('Failed to save session:', e);
         }
     }
     
-    async function loadSavedSessions() {
-        const container = document.getElementById('savedSessions');
-        const list = document.getElementById('sessionsList');
-        
-        if (!container || !list) return;
-        
+    // Load session - uses cached data if available, otherwise fetches fresh
+    async function loadSessionByUsername(username) {
         try {
-            const sessions = await IndexedDBStorage.getSessions();
-            
-            if (sessions.length === 0) {
-                // Try fallback to localStorage
-                const fallbackSessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-                const entries = Object.entries(fallbackSessions);
-                if (entries.length === 0) {
-                    container.style.display = 'none';
-                    return;
-                }
-                // Migrate to IndexedDB
-                for (const [username, session] of entries) {
-                    await IndexedDBStorage.saveSession(session);
-                }
-                localStorage.removeItem('tw_sessions');
-                loadSavedSessions(); // Reload from IndexedDB
+            const session = await SessionDB.get(username);
+            if (!session) {
+                console.warn('Session not found:', username);
                 return;
             }
             
-            container.style.display = 'block';
-            list.innerHTML = '';
+            state.username = session.username;
+            state.token = session.token;
+            state.queriedUserProfile = {
+                username: session.username,
+                displayName: session.displayName,
+                avatar: session.avatar
+            };
             
-            sessions.sort((a,b) => b.timestamp - a.timestamp);
-            sessions.forEach(session => {
-                const item = document.createElement('div');
-                item.className = 'session-item';
-                item.innerHTML = `
-                    <div class="session-avatar">${session.avatar ? `<img src="${session.avatar}">` : session.username[0].toUpperCase()}</div>
-                    <div class="session-info">
-                        <div class="session-name">${session.displayName || session.username}</div>
-                        <div class="session-username">@${session.username}</div>
-                        <div class="session-trips">${session.tripCount || 0} trips</div>
-                    </div>
-                    <button class="session-delete" onclick="deleteSession('${session.username}')">×</button>
-                `;
-                item.onclick = (e) => {
-                    if (!e.target.classList.contains('session-delete')) {
-                        loadSession(session);
-                    }
-                };
-                list.appendChild(item);
-            });
+            document.getElementById('username').value = session.username;
+            if (session.token) {
+                document.getElementById('apiToken').value = session.token;
+            }
+            
+            UI.syncTokenInputs(session.token);
+            UI.syncUsernameInput(session.username);
+            
+            // If we have cached trip data, use it directly
+            if (session.trips && session.trips.length > 0) {
+                state.fetchedTrips = session.trips;
+                
+                // Update UI with cached data
+                UI.updateDatasetSummary(
+                    session.displayName,
+                    session.username,
+                    session.trips.length,
+                    session.avatar
+                );
+                
+                // Hide setup, show menu
+                document.getElementById('setupScreen').classList.add('hidden');
+                document.getElementById('mainMenu').style.display = '';
+                
+                // Process and display the cached data
+                await processAndDisplayData(session.trips);
+                updateMenuAccountList();
+            } else {
+                // No cached data, fetch fresh
+                startDataFetch();
+            }
         } catch (e) {
-            console.error('Failed to load sessions:', e);
-            container.style.display = 'none';
+            console.error('Failed to load session:', e);
         }
     }
     
-    async function loadSession(session) {
-        state.username = session.username;
-        state.token = session.token || localStorage.getItem('tw_token');
-        state.tokenOwner = {
-            username: session.username,
-            displayName: session.displayName,
-            avatar: session.avatar,
-            validated: !!state.token
-        };
-        
-        document.getElementById('username').value = session.username;
-        if (state.token) {
-            document.getElementById('apiToken').value = state.token;
-        }
-        
-        UI.setTokenOwner(state.tokenOwner);
-        UI.syncTokenInputs(state.token);
-        UI.syncUsernameInput(session.username);
-        document.getElementById('setupScreen').classList.add('hidden');
-        document.getElementById('mainMenu').style.display = '';
-        processAndDisplayData(session.trips);
-        
-        // Update statistics after loading session
-        updateAllStatistics();
-        updateMenuAccountList();
-    }
-    
+    // Delete a session
     async function deleteSession(username) {
         try {
-            await IndexedDBStorage.deleteSession(username);
-            loadSavedSessions();
+            await SessionDB.delete(username);
             updateMenuAccountList();
         } catch (e) {
             console.error('Failed to delete session:', e);
-            // Try fallback to localStorage
-            const sessions = JSON.parse(localStorage.getItem('tw_sessions') || '{}');
-            delete sessions[username];
-            localStorage.setItem('tw_sessions', JSON.stringify(sessions));
-            loadSavedSessions();
-            updateMenuAccountList();
         }
     }
     
+    // Clear all sessions
     async function clearAllSessions() {
-        if (confirm('Clear all saved sessions? This cannot be undone.')) {
-            try {
-                await IndexedDBStorage.clearAll();
-                localStorage.removeItem('tw_sessions');
-                loadSavedSessions();
-                updateMenuAccountList();
-            } catch (e) {
-                console.error('Failed to clear sessions:', e);
-            }
-        }
-    }
-    
-    // Update account list in menu
-    async function updateMenuAccountList() {
-        const container = document.getElementById('savedAccountsList');
-        if (!container) return;
+        if (!confirm('Clear all saved sessions? This cannot be undone.')) return;
         
         try {
-            const sessions = await IndexedDBStorage.getSessions();
+            await SessionDB.clear();
+            updateMenuAccountList();
+        } catch (e) {
+            console.error('Failed to clear sessions:', e);
+        }
+    }
+    
+    // Update the saved accounts list in the menu AND setup screen
+    async function updateMenuAccountList() {
+        const menuContainer = document.getElementById('savedAccountsList');
+        const setupContainer = document.getElementById('sessionsList');
+        const setupSection = document.getElementById('savedSessions');
+        
+        try {
+            const sessions = await SessionDB.getAll();
             
-            if (!sessions.length) {
-                container.innerHTML = '<p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>';
-                return;
+            // Update menu container
+            if (menuContainer) {
+                if (!sessions.length) {
+                    menuContainer.innerHTML = '<p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>';
+                } else {
+                    menuContainer.innerHTML = sessions.map(session => {
+                        const avatarStyle = session.avatar 
+                            ? `background-image: url('${session.avatar}'); background-size: cover;`
+                            : '';
+                        const avatarContent = session.avatar ? '' : (session.username?.[0]?.toUpperCase() || '?');
+                        const displayName = session.displayName || session.username;
+                        const isActive = state.username === session.username ? 'active' : '';
+                        const date = session.timestamp ? new Date(session.timestamp).toLocaleDateString() : '';
+                        
+                        return `
+                            <div class="saved-account-item ${isActive}" onclick="loadSessionByUsername('${session.username}')">
+                                <div class="saved-account-avatar" style="${avatarStyle}">${avatarContent}</div>
+                                <div class="saved-account-info">
+                                    <div class="saved-account-name">${displayName}</div>
+                                    <div class="saved-account-meta">@${session.username} · ${session.tripCount || 0} trips · ${date}</div>
+                                </div>
+                                <button class="saved-account-delete" onclick="event.stopPropagation();deleteSession('${session.username}')">✕</button>
+                            </div>
+                        `;
+                    }).join('');
+                }
             }
             
-            container.innerHTML = sessions.map(session => {
-                const avatarStyle = session.avatar 
-                    ? `background-image: url('${session.avatar}'); background-size: cover;`
-                    : '';
-                const avatarContent = session.avatar ? '' : session.username[0].toUpperCase();
-                const displayName = session.displayName || session.username;
-                const isActive = state.username === session.username ? 'active' : '';
-                const date = new Date(session.timestamp).toLocaleDateString();
-                
-                return `
-                    <div class="saved-account-item ${isActive}" onclick="loadSession(${JSON.stringify(session).replace(/'/g, "\\'")})">
-                        <div class="saved-account-avatar" style="${avatarStyle}">${avatarContent}</div>
-                        <div class="saved-account-info">
-                            <div class="saved-account-name">${displayName}</div>
-                            <div class="saved-account-meta">@${session.username} · ${session.tripCount || 0} trips · ${date}</div>
-                        </div>
-                        <button class="saved-account-delete" onclick="event.stopPropagation();deleteSession('${session.username}')">✕</button>
-                    </div>
-                `;
-            }).join('');
-        } catch (e) { console.warn('Failed to update menu account list:', e); }
+            // Update setup screen container
+            if (setupContainer && setupSection) {
+                if (!sessions.length) {
+                    setupSection.style.display = 'none';
+                } else {
+                    setupSection.style.display = 'block';
+                    setupContainer.innerHTML = sessions.map(session => {
+                        const avatarStyle = session.avatar 
+                            ? `background-image: url('${session.avatar}'); background-size: cover;`
+                            : '';
+                        const avatarContent = session.avatar ? '' : (session.username?.[0]?.toUpperCase() || '?');
+                        const displayName = session.displayName || session.username;
+                        const date = session.timestamp ? new Date(session.timestamp).toLocaleDateString() : '';
+                        
+                        return `
+                            <div class="saved-account-item" onclick="loadSessionByUsername('${session.username}')">
+                                <div class="saved-account-avatar" style="${avatarStyle}">${avatarContent}</div>
+                                <div class="saved-account-info">
+                                    <div class="saved-account-name">${displayName}</div>
+                                    <div class="saved-account-meta">@${session.username} · ${session.tripCount || 0} trips · ${date}</div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            }
+        } catch (e) {
+            console.warn('Failed to update account lists:', e);
+            if (menuContainer) {
+                menuContainer.innerHTML = '<p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>';
+            }
+            if (setupSection) {
+                setupSection.style.display = 'none';
+            }
+        }
     }
 
     function logout() {
@@ -1402,15 +1432,12 @@
             menuFetchBtn.onclick = () => {
                 const token = menuApiToken.value.trim();
                 const username = menuUsername.value.trim();
-                if (!token) {
-                    UI.setTokenStatus('Please validate token first', 'error');
-                    return;
-                }
                 if (!username) {
                     alert('Please enter a username to query');
                     return;
                 }
-                state.token = token;
+                // Token is optional - works without for public profiles
+                state.token = token || null;
                 state.username = username;
                 UI.syncTokenInputs(token);
                 UI.syncUsernameInput(username);
@@ -1461,7 +1488,10 @@
     }
 
     function showPopup(lngLat, feature) {
+        // Remove existing popup and highlight
         if (state.currentPopup) state.currentPopup.remove();
+        clearRouteHighlight();
+        
         const props = feature.properties || {};
         let train = props.train;
         if (typeof train === 'string') try { train = JSON.parse(train); } catch (e) { train = {}; }
@@ -1474,6 +1504,9 @@
         const distance = Math.round((train.distance || 0) / 10) / 100;
         const category = feature.layer?.id || 'Unknown';
 
+        // Highlight the selected route using full polyline data
+        highlightRoute(feature, statusId);
+
         const html = `<div class="popup-content">
             <strong>${category} ${lineName}</strong>
             <p><strong>${origin}</strong> → <strong>${dest}</strong></p>
@@ -1481,8 +1514,93 @@
             ${statusId !== 'unknown' ? `<p><a href="https://traewelling.de/status/${statusId}" target="_blank" class="popup-link">View on Träwelling →</a></p>` : ''}
         </div>`;
 
-        state.currentPopup = new mapboxgl.Popup({ className: 'route-popup', closeButton: false, closeOnClick: true })
+        state.currentPopup = new mapboxgl.Popup({ className: 'route-popup', closeButton: true, closeOnClick: true })
             .setLngLat(lngLat).setHTML(html).addTo(state.map);
+        
+        // Clear highlight when popup closes
+        state.currentPopup.on('close', () => {
+            clearRouteHighlight();
+        });
+    }
+    
+    // Highlight a route on the map
+    function highlightRoute(feature, statusId) {
+        // Try to get full polyline from cached trip data
+        let coordinates = null;
+        
+        if (statusId && statusId !== 'unknown') {
+            const trip = state.fetchedTrips?.find(t => t.id === parseInt(statusId) || t.id === statusId);
+            if (trip?.train?.polyline?.geometry?.coordinates) {
+                coordinates = trip.train.polyline.geometry.coordinates;
+            }
+        }
+        
+        // Fall back to feature geometry if no full polyline found
+        if (!coordinates && feature.geometry?.coordinates) {
+            coordinates = feature.geometry.coordinates;
+        }
+        
+        if (!coordinates || coordinates.length < 2) return;
+        
+        // Add highlight layer
+        const highlightData = {
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates }
+        };
+        
+        // Remove existing highlight source/layer if present
+        if (state.map.getLayer('route-highlight')) {
+            state.map.removeLayer('route-highlight');
+        }
+        if (state.map.getLayer('route-highlight-glow')) {
+            state.map.removeLayer('route-highlight-glow');
+        }
+        if (state.map.getSource('route-highlight')) {
+            state.map.removeSource('route-highlight');
+        }
+        
+        // Add new highlight
+        state.map.addSource('route-highlight', { type: 'geojson', data: highlightData });
+        
+        // Glow layer (wider, semi-transparent)
+        state.map.addLayer({
+            id: 'route-highlight-glow',
+            type: 'line',
+            source: 'route-highlight',
+            layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: {
+                'line-color': '#ffffff',
+                'line-width': 12,
+                'line-opacity': 0.4,
+                'line-blur': 3
+            }
+        });
+        
+        // Main highlight layer
+        state.map.addLayer({
+            id: 'route-highlight',
+            type: 'line',
+            source: 'route-highlight',
+            layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: {
+                'line-color': '#ffff00',
+                'line-width': 5,
+                'line-opacity': 1
+            }
+        });
+    }
+    
+    // Clear route highlight
+    function clearRouteHighlight() {
+        if (state.map?.getLayer('route-highlight')) {
+            state.map.removeLayer('route-highlight');
+        }
+        if (state.map?.getLayer('route-highlight-glow')) {
+            state.map.removeLayer('route-highlight-glow');
+        }
+        if (state.map?.getSource('route-highlight')) {
+            state.map.removeSource('route-highlight');
+        }
     }
 
     function loadLayers() {
@@ -2210,12 +2328,12 @@
     // INIT
     // =========================================================================
     // Make session functions globally accessible for onclick handlers
-    window.loadSession = loadSession;
+    window.loadSessionByUsername = loadSessionByUsername;
     window.deleteSession = deleteSession;
+    window.clearAllSessions = clearAllSessions;
     
     document.addEventListener('DOMContentLoaded', () => {
         UI.init();
-        loadSavedSessions();
         updateMenuAccountList();
         document.getElementById('startFetchBtn').onclick = startDataFetch;
         document.getElementById('cancelFetchBtn').onclick = cancelFetch;
