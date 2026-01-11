@@ -79,6 +79,20 @@
         .fetch-stat { display: flex; flex-direction: column; align-items: center; }
         .fetch-stat-value { font-size: 24px; font-weight: 600; color: var(--text-primary); }
         .fetch-stat-label { font-size: 12px; color: var(--text-muted); }
+        .rate-limit-card { margin-top: 24px; padding: 16px; border: 1px solid var(--border-color); border-radius: 12px;
+            background: var(--bg-tertiary); text-align: left; }
+        .rate-limit-header { display: flex; justify-content: space-between; align-items: flex-start; font-size: 13px;
+            font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; gap: 8px; }
+        .rate-limit-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+        .rate-limit-limit { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; }
+        .rate-limit-label { font-size: 12px; color: var(--text-primary); }
+        .rate-limit-bar { position: relative; height: 12px; border-radius: 999px; overflow: hidden; background: #1c1c1c;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05); }
+        .rate-limit-bar span { position: absolute; top: 0; bottom: 0; transition: width 0.25s ease; }
+        .rate-limit-used { left: 0; background: linear-gradient(90deg, #ff6b6b, #ffa726); width: 0%; }
+        .rate-limit-available { right: 0; background: linear-gradient(90deg, #00c853, #81c784); width: 100%; opacity: 0.9; mix-blend-mode: screen; }
+        .rate-limit-status { margin-top: 8px; font-size: 12px; color: var(--text-muted); }
+        .rate-limit-card.waiting .rate-limit-status { color: #ffb74d; }
         .fetch-cancel { margin-top: 30px; padding: 10px 20px; background: transparent; border: 1px solid var(--border-color);
             border-radius: 6px; color: var(--text-secondary); cursor: pointer; font-size: 14px; }
         .fetch-error { color: #ff4444; background: rgba(255, 68, 68, 0.1); border: 1px solid rgba(255, 68, 68, 0.3);
@@ -238,6 +252,8 @@
                 <div class="saved-sessions" id="savedSessions" style="display: none;">
                     <h3>📁 Recent Sessions</h3>
                     <div id="sessionsList"></div>
+                    <button class="btn-outline" data-action="clear-cache" style="margin-top: 12px; width: 100%;">🧹 Clear cached data</button>
+                    <p class="form-hint" style="margin-top: 6px;">Removes stored accounts, cached trips, and tokens from this device.</p>
                 </div>
             </div>
         </div>
@@ -254,6 +270,20 @@
                 <div class="fetch-stat"><span class="fetch-stat-value" id="fetchTrips">0</span><span class="fetch-stat-label">Trips</span></div>
                 <div class="fetch-stat"><span class="fetch-stat-value" id="fetchPages">0</span><span class="fetch-stat-label">Pages</span></div>
                 <div class="fetch-stat"><span class="fetch-stat-value" id="fetchPolylines">0</span><span class="fetch-stat-label">Routes</span></div>
+            </div>
+            <div class="rate-limit-card" id="rateLimitCard" aria-live="polite">
+                <div class="rate-limit-header">
+                    <span>API Headroom</span>
+                    <div class="rate-limit-meta">
+                        <span class="rate-limit-limit">Limit: 55 req / 60s</span>
+                        <span class="rate-limit-label" id="rateLimitLabel">55/55 requests available</span>
+                    </div>
+                </div>
+                <div class="rate-limit-bar">
+                    <span class="rate-limit-used" id="rateLimitUsed"></span>
+                    <span class="rate-limit-available" id="rateLimitAvailable"></span>
+                </div>
+                <div class="rate-limit-status" id="rateLimitStatus">Ready</div>
             </div>
             <div class="fetch-error hidden" id="fetchError"></div>
             <button class="fetch-cancel" id="cancelFetchBtn">Cancel</button>
@@ -329,7 +359,7 @@
                             <div id="savedAccountsList">
                                 <p class="section-sub" style="margin: 0; text-align: center;">No saved accounts</p>
                             </div>
-                            <button class="btn-secondary" onclick="clearAllSessions()" style="margin-top: 8px; font-size: 12px;">Clear All Sessions</button>
+                            <button class="btn-secondary" data-action="clear-cache" style="margin-top: 8px; font-size: 12px;">🧹 Clear Cached Data</button>
                         </div>
                     </details>
                     
@@ -416,6 +446,17 @@
     // =========================================================================
     // STATE & CONFIG
     // =========================================================================
+    const createEmptyStats = () => ({
+        trips: 0,
+        distance: 0,
+        lineCounts: {},
+        typeCounts: {},
+        oldestDate: null,
+        newestDate: null,
+        oldestStatusId: null,
+        newestStatusId: null
+    });
+
     const state = {
         map: null,
         deck: null,
@@ -423,12 +464,20 @@
         currentPopup: null,
         token: null,
         username: null,
-        tokenOwner: { username: null, displayName: null, avatar: null, profileUrl: null, validated: false },
-        queriedUserProfile: null, // Profile of the user being queried (may differ from token owner)
+        datasetVersion: 0,
         fetchedTrips: [],
         filters: { fromDate: null, toDate: null, hideInaccurate: false },
         railway: { enabled: false },
-        heatmap: { enabled: false, animate: false, animationFrameId: null, intensity: 3, densityCache: null },
+        heatmap: { 
+            enabled: false, 
+            animate: false, 
+            animationFrameId: null, 
+            intensity: 3, 
+            densityCache: null,
+            cacheKey: null,
+            needsRebuild: true,
+            pendingColorFrame: null
+        },
         layers: { 
             data: new Map(), 
             order: [
@@ -445,7 +494,8 @@
                 'nationalExpress'
             ]
         },
-        statistics: { trips: 0, distance: 0, lineCounts: {}, typeCounts: {}, oldestDate: null, newestDate: null, oldestStatusId: null, newestStatusId: null },
+        statistics: createEmptyStats(),
+        datasetVersion: 0,
         cache: new Map(),
         cacheTimestamps: new Map()
     };
@@ -454,6 +504,7 @@
         MAPBOX_TOKEN: 'pk.eyJ1IjoiaGFzaGVyMTEiLCJhIjoiY2xhbzFubnJ2MHYyeDNvbGJ0N2E4ZGtmcCJ9.Y85sMCOsQLFIyxA7RTO7WA',
         API_BASE_URL: 'https://traewelling.de/api/v1',
         RATE_LIMIT: 55, RATE_WINDOW: 60000,
+        SESSION_MAX_AGE_MS: 1000 * 60 * 60 * 24 * 30, // 30 days
         LAYER_CONFIG: [
             ['nationalExpress', '#0073ff'],
             ['national', '#00eeff'],
@@ -506,6 +557,14 @@
         toggleFetch(show) {
             if (!this.refs) return;
             this.refs.fetchScreen.classList.toggle('hidden', !show);
+        },
+        bindGlobalActions() {
+            document.querySelectorAll('[data-action="clear-cache"]').forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    clearAllSessions();
+                });
+            });
         },
         updateFetchStats({ trips, pages, routes, progress, status }) {
             if (!this.refs) return;
@@ -605,6 +664,67 @@
         }
     };
 
+    const RateLimitUI = {
+        init() {
+            this.card = document.getElementById('rateLimitCard');
+            this.label = document.getElementById('rateLimitLabel');
+            this.usedBar = document.getElementById('rateLimitUsed');
+            this.availableBar = document.getElementById('rateLimitAvailable');
+            this.statusText = document.getElementById('rateLimitStatus');
+            this.countdown = null;
+            this.reset();
+        },
+
+        reset() {
+            this.updateUsage(0);
+            this.clearWaiting();
+            this.setStatus('Ready');
+        },
+
+        updateUsage(usedCount) {
+            if (!this.card) return;
+            const clamped = Math.max(0, Math.min(CONFIG.RATE_LIMIT, usedCount));
+            const available = Math.max(CONFIG.RATE_LIMIT - clamped, 0);
+            const usedPercent = CONFIG.RATE_LIMIT ? Math.round((clamped / CONFIG.RATE_LIMIT) * 100) : 0;
+            const availablePercent = CONFIG.RATE_LIMIT ? Math.round((available / CONFIG.RATE_LIMIT) * 100) : 0;
+
+            if (this.usedBar) this.usedBar.style.width = `${usedPercent}%`;
+            if (this.availableBar) this.availableBar.style.width = `${availablePercent}%`;
+            if (this.label) this.label.textContent = `${clamped}/${CONFIG.RATE_LIMIT} requests used`;
+        },
+
+        showWaiting(waitMs) {
+            if (!this.card) return;
+            this.clearWaiting();
+            this.card.classList.add('waiting');
+            const end = Date.now() + waitMs;
+            const tick = () => {
+                const remaining = Math.max(0, end - Date.now());
+                const seconds = (remaining / 1000).toFixed(1);
+                this.setStatus(`Rate limit cooldown: ${seconds}s`);
+                if (remaining <= 0) {
+                    this.clearWaiting();
+                }
+            };
+
+            tick();
+            this.countdown = setInterval(tick, 200);
+        },
+
+        clearWaiting() {
+            if (!this.card) return;
+            this.card.classList.remove('waiting');
+            if (this.countdown) {
+                clearInterval(this.countdown);
+                this.countdown = null;
+            }
+        },
+
+        setStatus(text) {
+            if (this.statusText) this.statusText.textContent = text;
+        }
+    };
+
     // =========================================================================
     // INDEXEDDB FOR SESSION STORAGE (Simplified & Robust)
     // =========================================================================
@@ -614,6 +734,14 @@
         VERSION: 1,
         MAX_SESSIONS: 15,
         _db: null,
+        
+        isExpired(session, now = Date.now()) {
+            if (!session) return false;
+            const maxAge = CONFIG.SESSION_MAX_AGE_MS;
+            if (!maxAge) return false;
+            if (!session.timestamp) return true;
+            return now - session.timestamp > maxAge;
+        },
         
         // Open database connection
         open() {
@@ -665,7 +793,7 @@
         },
         
         // Get all sessions
-        async getAll() {
+        async getAll(includeExpired = false) {
             const db = await this.open();
             return new Promise((resolve, reject) => {
                 const tx = db.transaction([this.STORE_NAME], 'readonly');
@@ -673,7 +801,31 @@
                 req.onsuccess = () => {
                     const sessions = req.result || [];
                     sessions.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-                    resolve(sessions);
+                    
+                    if (includeExpired) {
+                        resolve(sessions);
+                        return;
+                    }
+                    
+                    const now = Date.now();
+                    const fresh = [];
+                    const expiredUsernames = [];
+                    
+                    for (const session of sessions) {
+                        if (this.isExpired(session, now)) {
+                            expiredUsernames.push(session.username);
+                        } else {
+                            fresh.push(session);
+                        }
+                    }
+                    
+                    if (expiredUsernames.length) {
+                        expiredUsernames.forEach(username => {
+                            this.delete(username).catch(err => console.warn('Failed to delete expired session', username, err));
+                        });
+                    }
+                    
+                    resolve(fresh);
                 };
                 req.onerror = () => reject(req.error);
             });
@@ -685,7 +837,15 @@
             return new Promise((resolve, reject) => {
                 const tx = db.transaction([this.STORE_NAME], 'readonly');
                 const req = tx.objectStore(this.STORE_NAME).get(username);
-                req.onsuccess = () => resolve(req.result || null);
+                req.onsuccess = () => {
+                    const session = req.result || null;
+                    if (session && this.isExpired(session)) {
+                        this.delete(username).catch(() => {});
+                        resolve(null);
+                    } else {
+                        resolve(session);
+                    }
+                };
                 req.onerror = () => reject(req.error);
             });
         },
@@ -712,12 +872,23 @@
             });
         },
         
-        // Remove old sessions beyond MAX_SESSIONS
+        // Remove old sessions beyond MAX_SESSIONS and expired entries
         async prune() {
             try {
-                const sessions = await this.getAll();
-                if (sessions.length > this.MAX_SESSIONS) {
-                    const toDelete = sessions.slice(this.MAX_SESSIONS);
+                const now = Date.now();
+                const sessions = await this.getAll(true);
+                
+                const freshSessions = [];
+                for (const session of sessions) {
+                    if (this.isExpired(session, now)) {
+                        await this.delete(session.username);
+                    } else {
+                        freshSessions.push(session);
+                    }
+                }
+                
+                if (freshSessions.length > this.MAX_SESSIONS) {
+                    const toDelete = freshSessions.slice(this.MAX_SESSIONS);
                     for (const s of toDelete) {
                         await this.delete(s.username);
                     }
@@ -732,17 +903,34 @@
     // RATE-LIMITED API CLIENT
     // =========================================================================
     class TraewellingAPI {
-        constructor(token = null) { this.token = token; this.requestTimes = []; }
+        constructor(token = null, options = {}) {
+            this.token = token;
+            this.requestTimes = [];
+            this.onRateLimitUpdate = options.onRateLimitUpdate || null;
+        }
 
         async waitForRateLimit() {
             const now = Date.now();
             this.requestTimes = this.requestTimes.filter(t => now - t < CONFIG.RATE_WINDOW);
+            if (this.onRateLimitUpdate) {
+                this.onRateLimitUpdate({ used: this.requestTimes.length });
+            }
+
             if (this.requestTimes.length >= CONFIG.RATE_LIMIT) {
                 const waitTime = CONFIG.RATE_WINDOW - (now - Math.min(...this.requestTimes)) + 100;
                 console.log(`Rate limit: waiting ${waitTime}ms`);
+                if (this.onRateLimitUpdate) {
+                    this.onRateLimitUpdate({ used: this.requestTimes.length, waitMs: waitTime });
+                }
                 await new Promise(r => setTimeout(r, waitTime));
+                if (this.onRateLimitUpdate) {
+                    this.onRateLimitUpdate({ used: this.requestTimes.length });
+                }
             }
             this.requestTimes.push(Date.now());
+            if (this.onRateLimitUpdate) {
+                this.onRateLimitUpdate({ used: this.requestTimes.length });
+            }
         }
 
         async request(endpoint, requireAuth = false) {
@@ -772,12 +960,23 @@
         if (!username) return alert('Please enter a username');
 
         state.token = token; state.username = username; state.isFetching = true;
+        if (token) rememberToken(token, { autoValidate: false });
         state.cancelFetch = false; state.fetchedTrips = [];
         state.queriedUserProfile = null; // Reset queried user profile
+        RateLimitUI.reset();
         UI.toggleSetup(false);
         UI.toggleFetch(true);
 
-        const api = new TraewellingAPI(token);
+        const handleRateLimit = (payload = {}) => {
+            RateLimitUI.updateUsage(payload.used || 0);
+            if (payload.waitMs) {
+                RateLimitUI.showWaiting(payload.waitMs);
+            } else {
+                RateLimitUI.setStatus(payload.used ? 'Tracking API usage' : 'Ready');
+            }
+        };
+
+        const api = new TraewellingAPI(token, { onRateLimitUpdate: handleRateLimit });
         try {
             // Only validate token if provided
             if (token) {
@@ -1044,13 +1243,19 @@
         }
     }
     
-    // Clear all sessions
+    // Clear all sessions / cached data
     async function clearAllSessions() {
-        if (!confirm('Clear all saved sessions? This cannot be undone.')) return;
+        if (!confirm('Clear all cached sessions, stored trips, and tokens on this device? This cannot be undone.')) return;
         
         try {
             await SessionDB.clear();
-            updateMenuAccountList();
+            if (state.cache?.clear) state.cache.clear();
+            if (state.cacheTimestamps?.clear) state.cacheTimestamps.clear();
+            state.queriedUserProfile = null;
+            localStorage.removeItem('tw_token');
+            logout();
+            await updateMenuAccountList();
+            alert('All cached sessions and offline data have been removed from this device.');
         } catch (e) {
             console.error('Failed to clear sessions:', e);
         }
@@ -1149,8 +1354,13 @@
     // MAP INITIALIZATION & DISPLAY
     // =========================================================================
     async function processAndDisplayData(trips) {
+        resetStatistics();
+        refreshStatsDisplay();
         // Update dataset summary in menu
         UI.updateDatasetSummary(state.username, trips.length);
+        state.datasetVersion++;
+        state.heatmap.needsRebuild = true;
+        state.heatmap.cacheKey = null;
 
         const categories = processTripsToGeoJSON(trips);
 
@@ -1406,6 +1616,7 @@
                     UI.setTokenStatus('Token valid', 'success');
                     state.token = token;
                     UI.syncTokenInputs(token);
+                    rememberToken(token, { autoValidate: false });
                 } catch (error) {
                     UI.setTokenStatus('Invalid token', 'error');
                     state.tokenOwner.validated = false;
@@ -2203,6 +2414,9 @@
             return true;
         });
 
+        state.datasetVersion++;
+        state.heatmap.needsRebuild = true;
+        state.heatmap.cacheKey = null;
         const categories = processTripsToGeoJSON(filtered);
         state.layers.order.forEach(layerId => {
             let data = categories[layerId] || { type: 'FeatureCollection', features: [] };
@@ -2300,6 +2514,18 @@
     // =========================================================================
     // TOKEN AUTO-VALIDATION
     // =========================================================================
+    function rememberToken(token, { autoValidate = true } = {}) {
+        if (!token) return;
+        try {
+            localStorage.setItem('tw_token', token);
+        } catch (error) {
+            console.warn('Failed to persist API token for auto-validation:', error);
+        }
+        if (autoValidate) {
+            validateStoredToken(token);
+        }
+    }
+    
     async function validateStoredToken(token) {
         try {
             const api = new TraewellingAPI(token);
@@ -2334,6 +2560,8 @@
     
     document.addEventListener('DOMContentLoaded', () => {
         UI.init();
+        UI.bindGlobalActions();
+        RateLimitUI.init();
         updateMenuAccountList();
         document.getElementById('startFetchBtn').onclick = startDataFetch;
         document.getElementById('cancelFetchBtn').onclick = cancelFetch;
